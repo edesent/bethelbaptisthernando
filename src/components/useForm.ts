@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-export type FormKind = "prayer" | "contact" | "chat" | "ride";
+export type FormKind = "prayer" | "contact" | "ride";
 
 /** Fetches a signed load-time token and posts a form to /api/form. */
 export function useForm(kind: FormKind) {

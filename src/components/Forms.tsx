@@ -133,7 +133,7 @@ export function RideForm() {
           <label className={label} htmlFor="r-name">
             Your name
           </label>
-          <input id="r-name" name="name" required className={field} autoComplete="name" />
+          <input id="r-name" name="name" required className={field} autoComplete="name" placeholder="First and last" />
         </div>
         <div>
           <label className={label} htmlFor="r-contact">
