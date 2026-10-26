@@ -6,16 +6,17 @@ import HeroVideo from "@/components/HeroVideo";
 import VideoLightbox from "@/components/VideoLightbox";
 import Phone from "@/components/Phone";
 import { comingUp, fmtDay, fmtTime, relativeDay, thisWeek } from "@/lib/calendar";
+import streamDates from "@/data/stream-dates.json";
 import { fmtPublished, fmtStart, fmtStreamDate, liveStatus, recentVideos, streamDetail } from "@/lib/youtube";
 import { photos } from "@/lib/photos";
 import { banners, church, counseling, giving, lunchRotation, pastor } from "@/lib/site";
 import { nowInChurch } from "@/lib/calendar";
 
 export default async function Home() {
-  const [week, specials, live, videos] = await Promise.all([thisWeek(7), comingUp(120, 3), liveStatus(), recentVideos(1)]);
-  const latest = videos[0];
+  const [week, specials, live, videos] = await Promise.all([thisWeek(7), comingUp(120, 3), liveStatus(), recentVideos(10)]);
+  const latest = videos.find((v) => ((streamDates as Record<string, { minutes: number | null }>)[v.id]?.minutes ?? 99) >= 3) ?? videos[0];
   const featured = live.state === "live" ? live.id : latest.id;
-  const latestWhen = fmtStreamDate((await streamDetail(latest.id)).startedAt) || fmtPublished(latest.published);
+  const latestWhen = fmtStreamDate(await streamDetail(latest.id)) || fmtPublished(latest.published);
   const today = nowInChurch().date;
   const liveBanners = banners.filter((b) => !b.endsOn || b.endsOn >= today);
 
@@ -129,7 +130,7 @@ export default async function Home() {
                 <Image src={photos.lunchHall.src} alt={photos.lunchHall.alt} width={photos.lunchHall.w} height={photos.lunchHall.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover" />
               </figure>
               <figure className="overflow-hidden rounded-2xl shadow-lg">
-                <Image src={photos.welcomeSign.src} alt={photos.welcomeSign.alt} width={photos.welcomeSign.w} height={photos.welcomeSign.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover object-top" />
+                <Image src={photos.tablesSet.src} alt={photos.tablesSet.alt} width={photos.tablesSet.w} height={photos.tablesSet.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover" />
               </figure>
             </div>
           </div>
@@ -147,7 +148,7 @@ export default async function Home() {
               Stay for lunch. <span className="script text-gold-light">Every week.</span>
             </h2>
             <p className="text-shadow mt-6 max-w-xl text-lg text-white/90">
-              Twenty-some people eating together after church, every Sunday of the year, is how you find out a church is a family. There is
+              A family church eating together after church, every Sunday of the year, is how you find out it really is one. There is
               a different table each week of the month. Bring a dish if you like. Bring nothing and you will still go home full.
             </p>
           </div>

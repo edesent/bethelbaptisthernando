@@ -5,6 +5,7 @@ import PageHead from "@/components/PageHead";
 import VideoLightbox from "@/components/VideoLightbox";
 import { photos } from "@/lib/photos";
 import { church } from "@/lib/site";
+import streamDates from "@/data/stream-dates.json";
 import { allStreams, fmtPublished, fmtStart, fmtStreamDate, liveStatus, recentVideos, streamDetail } from "@/lib/youtube";
 
 export const metadata: Metadata = {
@@ -16,16 +17,18 @@ const PER_PAGE = 12;
 
 export default async function Watch({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page: pageParam } = await searchParams;
-  const [live, videos, streams] = await Promise.all([liveStatus(), recentVideos(1), allStreams()]);
-  const latest = videos[0];
+  const [live, videos, streams] = await Promise.all([liveStatus(), recentVideos(10), allStreams()]);
+  // Streams that lasted under three minutes are false starts; the full service follows them.
+  const known = (id: string) => (streamDates as Record<string, { minutes: number | null }>)[id]?.minutes ?? null;
+  const latest = videos.find((v) => (known(v.id) ?? 99) >= 3) ?? videos[0];
   const featured = live.state === "live" ? live.id : latest.id;
-  const archive = streams.filter((v) => v.id !== featured);
+  const archive = streams.filter((v) => v.id !== featured && !(known(v.id) !== null && (known(v.id) as number) < 3));
   const pages = Math.max(1, Math.ceil(archive.length / PER_PAGE));
   const page = Math.min(pages, Math.max(1, Number(pageParam) || 1));
   const rest = archive.slice((page - 1) * PER_PAGE, page * PER_PAGE);
   // The real day and time each one started, for this page only.
   const details = new Map((await Promise.all([featured, ...rest.map((v) => v.id)].map((id) => streamDetail(id)))).map((d) => [d.id, d]));
-  const when = (id: string, fallback: string) => fmtStreamDate(details.get(id)?.startedAt ?? null) || fallback;
+  const when = (id: string, fallback: string) => fmtStreamDate(details.get(id) ?? null) || fallback;
   const featuredWhen = when(featured, fmtPublished(latest.published));
   const pageLink = (n: number) => (n === 1 ? "/watch#services" : `/watch?page=${n}#services`);
   return (

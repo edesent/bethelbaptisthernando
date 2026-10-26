@@ -65,7 +65,7 @@ export default function Ministries() {
             What we do <span className="script text-gold-light">the rest of the week.</span>
           </>
         }
-        lede="A church of twenty-some people that keeps a van, a youth night, a counseling ministry and a Saturday table at the market. Here is all of it."
+        lede="A family church that keeps a van, a youth night, a counseling ministry and a Saturday table at the market. Here is all of it."
         photo="lawnGames"
         position="center 45%"
       />

@@ -29,7 +29,7 @@ export default function Rebuild() {
             Rebuilt <span className="script text-gold-light">by hand.</span>
           </>
         }
-        lede="No contractor. A church of twenty or so, on Saturdays and weeknights, for about a year. Grand reopening March 1, 2026, with lunch."
+        lede="No contractor. A family church, on Saturdays and weeknights, for about a year. Grand reopening March 1, 2026, with lunch."
         photo="yardWork"
         position="center 42%"
       />

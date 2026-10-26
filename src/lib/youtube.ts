@@ -1,4 +1,5 @@
 import { TZ } from "./site";
+import streamDates from "@/data/stream-dates.json";
 
 /**
  * The church's YouTube channel: what is live right now, what is scheduled,
@@ -160,41 +161,49 @@ function collect(node: unknown, out: Stream[]): string | null {
 
 /* ---------- the real date and time of one stream ---------- */
 
-export type StreamDetail = { id: string; startedAt: string | null; minutes: number | null };
+export type StreamDetail = { id: string; startedAt: string | null; minutes: number | null; hasTime: boolean };
+
+const KNOWN = streamDates as Record<string, { start: string; minutes: number | null }>;
+const MONTHS: Record<string, string> = { Jan: "01", Feb: "02", Mar: "03", Apr: "04", May: "05", Jun: "06", Jul: "07", Aug: "08", Sep: "09", Oct: "10", Nov: "11", Dec: "12" };
 
 /**
- * When a stream actually started (and how long it ran), from YouTube's own
- * player data. About 9 KB per video, and a date never changes, so each one is
- * cached for a month. Only the videos on the current page are asked for.
+ * When a stream started and how long it ran. `src/data/stream-dates.json`
+ * holds the exact start of every stream on the channel (refresh it with
+ * `node scripts/stream-dates.mjs`; YouTube refuses that call from Vercel's
+ * servers). A stream not in the file yet is asked about through YouTube's
+ * "next" data, which Vercel can reach and which gives the day but not the
+ * time; that answer is cached for a month.
  */
-export async function streamDetail(id: string, key = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8", ver = "2.20261026.01.00"): Promise<StreamDetail> {
+export async function streamDetail(id: string): Promise<StreamDetail> {
+  const k = KNOWN[id];
+  if (k) return { id, startedAt: k.start, minutes: k.minutes, hasTime: true };
   try {
-    const r = await fetch(`https://www.youtube.com/youtubei/v1/player?key=${key}&prettyPrint=false`, {
+    const r = await fetch("https://www.youtube.com/youtubei/v1/next?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8&prettyPrint=false", {
       method: "POST",
       headers: { "User-Agent": UA, "Content-Type": "application/json" },
-      body: JSON.stringify({ context: { client: { clientName: "WEB", clientVersion: ver, hl: "en", gl: "US" } }, videoId: id }),
+      body: JSON.stringify({ context: { client: { clientName: "WEB", clientVersion: "2.20261026.01.00", hl: "en", gl: "US" } }, videoId: id }),
       next: { revalidate: 60 * 60 * 24 * 30 },
     });
     if (!r.ok) throw new Error(String(r.status));
-    const j = (await r.json()) as { microformat?: { playerMicroformatRenderer?: { publishDate?: string; liveBroadcastDetails?: { startTimestamp?: string; endTimestamp?: string } } } };
-    const mf = j.microformat?.playerMicroformatRenderer;
-    const live = mf?.liveBroadcastDetails;
-    const startedAt = live?.startTimestamp ?? mf?.publishDate ?? null;
-    const minutes = live?.startTimestamp && live?.endTimestamp ? Math.round((Date.parse(live.endTimestamp) - Date.parse(live.startTimestamp)) / 60000) : null;
-    return { id, startedAt, minutes };
+    const t = await r.text();
+    const m = t.match(/"dateText":\{"simpleText":"(?:Streamed live on |Premiered |Started streaming on )?([A-Z][a-z]{2}) (\d{1,2}), (\d{4})"/);
+    if (!m) return { id, startedAt: null, minutes: null, hasTime: false };
+    // Noon in the church's zone, so the weekday comes out right.
+    return { id, startedAt: `${m[3]}-${MONTHS[m[1]]}-${m[2].padStart(2, "0")}T12:00:00-05:00`, minutes: null, hasTime: false };
   } catch {
-    return { id, startedAt: null, minutes: null };
+    return { id, startedAt: null, minutes: null, hasTime: false };
   }
 }
 
 const ordinal = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : (["th", "st", "nd", "rd"][n % 10] ?? "th")}`;
 
-/** "Sunday · Aug 24th · 11:00 AM", in the church's time zone. */
-export function fmtStreamDate(iso: string | null, sep = " · ") {
-  if (!iso) return "";
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "";
-  const parts = new Intl.DateTimeFormat("en-US", { timeZone: TZ, weekday: "long", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).formatToParts(d);
+/** "Sunday · Aug 24th · 11:00 AM" (or without the time when only the day is known), in the church's time zone. */
+export function fmtStreamDate(d: StreamDetail | null, sep = " · ") {
+  if (!d?.startedAt) return "";
+  const dt = new Date(d.startedAt);
+  if (Number.isNaN(dt.getTime())) return "";
+  const parts = new Intl.DateTimeFormat("en-US", { timeZone: TZ, weekday: "long", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).formatToParts(dt);
   const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
-  return `${get("weekday")}${sep}${get("month")} ${ordinal(Number(get("day")))}${sep}${get("hour")}:${get("minute")} ${get("dayPeriod")}`;
+  const day = `${get("weekday")}${sep}${get("month")} ${ordinal(Number(get("day")))}`;
+  return d.hasTime ? `${day}${sep}${get("hour")}:${get("minute")} ${get("dayPeriod")}` : day;
 }

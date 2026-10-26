@@ -25,7 +25,6 @@ export const photos = {
   ordination: { src: "/photos/ordination.jpg", w: 1188, h: 1280, alt: "Pastors laying hands on Brandon Bankert at his ordination, December 2025" },
   campfire: { src: "/photos/campfire.jpg", w: 640, h: 480, alt: "The church in folding chairs around a campfire at night" },
   van: { src: "/photos/van.jpg", w: 720, h: 540, alt: "The church van, lettered Bethel Baptist Church, parked under the oaks" },
-  welcomeSign: { src: "/photos/welcome-sign.jpg", w: 480, h: 640, alt: "A hand-lettered Welcome to Bethel sign inside the front door, flowers on a table beneath it" },
   kidsBuckets: { src: "/photos/kids-buckets.jpg", w: 640, h: 480, alt: "Two children racing with buckets down the fellowship hall" },
   pastorPreaching: { src: "/photos/pastor-preaching.jpg", w: 1280, h: 720, alt: "Pastor Bankert preaching from the pulpit in front of the mural, from the Sunday livestream" },
   lunchLadies: { src: "/photos/lunch-ladies.jpg", w: 1800, h: 1559, alt: "Ladies around a long table set with a pink runner and flowers at a fellowship lunch" },
