@@ -63,7 +63,7 @@ export default async function Home() {
         <div className="wrap grid items-center gap-10 py-16 md:grid-cols-[0.8fr_1.2fr] md:gap-14 md:py-24">
           <div className="relative mx-auto w-full max-w-sm" data-reveal>
             <figure className="overflow-hidden rounded-2xl shadow-2xl">
-              <Image src={photos.pastorFamilyGazebo.src} alt={photos.pastorFamilyGazebo.alt} width={photos.pastorFamilyGazebo.w} height={photos.pastorFamilyGazebo.h} sizes="(min-width: 768px) 32vw, 90vw" priority className="h-auto w-full" />
+              <Image src={photos.pastorFamilyCurrent.src} alt={photos.pastorFamilyCurrent.alt} width={photos.pastorFamilyCurrent.w} height={photos.pastorFamilyCurrent.h} sizes="(min-width: 768px) 32vw, 90vw" priority className="h-auto w-full" />
             </figure>
             <figure className="absolute -bottom-6 -right-4 w-32 overflow-hidden rounded-xl border-4 border-paper shadow-xl sm:w-40 md:-right-8">
               <Image src={photos.ordination.src} alt={photos.ordination.alt} width={photos.ordination.w} height={photos.ordination.h} sizes="160px" className="h-auto w-full" />
@@ -138,9 +138,6 @@ export default async function Home() {
               </figure>
               <figure className="overflow-hidden rounded-2xl shadow-lg">
                 <Image src={photos.churchFamily.src} alt={photos.churchFamily.alt} width={photos.churchFamily.w} height={photos.churchFamily.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover" />
-              </figure>
-              <figure className="col-span-2 overflow-hidden rounded-2xl shadow-lg">
-                <Image src={photos.familyAtBethel.src} alt={photos.familyAtBethel.alt} width={photos.familyAtBethel.w} height={photos.familyAtBethel.h} sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/3] h-full w-full object-cover" />
               </figure>
             </div>
           </div>

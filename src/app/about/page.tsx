@@ -40,7 +40,7 @@ export default function About() {
         <div className="wrap grid items-start gap-12 py-16 md:grid-cols-[0.9fr_1.1fr] md:py-24">
           <div className="grid gap-3" data-reveal>
             <figure className="overflow-hidden rounded-2xl shadow-xl">
-              <Image src={photos.pastorFamilyGazebo.src} alt={photos.pastorFamilyGazebo.alt} width={photos.pastorFamilyGazebo.w} height={photos.pastorFamilyGazebo.h} sizes="(min-width: 768px) 40vw, 100vw" className="w-full" />
+              <Image src={photos.pastorFamilyCurrent.src} alt={photos.pastorFamilyCurrent.alt} width={photos.pastorFamilyCurrent.w} height={photos.pastorFamilyCurrent.h} sizes="(min-width: 768px) 40vw, 100vw" className="w-full" />
             </figure>
             <div className="grid grid-cols-2 gap-3">
               <figure className="overflow-hidden rounded-2xl shadow-lg">

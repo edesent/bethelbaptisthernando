@@ -36,7 +36,7 @@ export default function Contact() {
           </div>
           <div data-reveal="1">
             <figure className="overflow-hidden rounded-2xl shadow-lg">
-              <Image src={photos.pastorFamilyGazebo.src} alt={photos.pastorFamilyGazebo.alt} width={photos.pastorFamilyGazebo.w} height={photos.pastorFamilyGazebo.h} sizes="(min-width: 768px) 40vw, 100vw" className="w-full" />
+              <Image src={photos.pastorFamilyCurrent.src} alt={photos.pastorFamilyCurrent.alt} width={photos.pastorFamilyCurrent.w} height={photos.pastorFamilyCurrent.h} sizes="(min-width: 768px) 40vw, 100vw" className="w-full" />
             </figure>
             <p className="eyebrow mt-8 text-gold-deep">Or call</p>
             <p className="mt-2 text-2xl">
