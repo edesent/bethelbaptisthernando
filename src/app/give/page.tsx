@@ -29,12 +29,25 @@ export default function Give() {
           <div data-reveal>
             <p className="eyebrow text-gold-deep">Three ways</p>
             <div className="mt-6 space-y-4">
-              <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5">
-                <p className="display-soft text-2xl">Online</p>
-                <p className="mt-1 text-ink/75">Through Tithe.ly, one time or monthly. Card or bank. A receipt comes by email.</p>
-                <a href={giving.url} className="btn btn-gold mt-4" rel="noopener">
-                  Give online
-                </a>
+              <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-ink/5">
+                <div className="p-6 pb-4">
+                  <p className="display-soft text-2xl">Online</p>
+                  <p className="mt-1 text-ink/75">Through Tithe.ly, one time or monthly. Card or bank. A receipt comes by email.</p>
+                </div>
+                <iframe
+                  title="Give online to Bethel Baptist Church through Tithe.ly"
+                  src={giving.url}
+                  className="h-[46rem] w-full border-t border-ink/10 bg-white"
+                  loading="lazy"
+                  allow="payment"
+                />
+                <p className="px-6 py-3 text-sm text-muted">
+                  Prefer a full page?{" "}
+                  <a href={giving.url} className="font-semibold text-gold-deep underline underline-offset-4" rel="noopener" target="_blank">
+                    Open the giving form in a new tab
+                  </a>
+                  .
+                </p>
               </div>
               <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5">
                 <p className="display-soft text-2xl">On Sunday</p>
