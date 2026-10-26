@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Banners from "@/components/Banners";
 import OpenChat from "@/components/OpenChat";
-import HeroVideo from "@/components/HeroVideo";
 import VideoLightbox from "@/components/VideoLightbox";
 import Phone from "@/components/Phone";
 import { comingUp, fmtDay, fmtTime, relativeDay, thisWeek } from "@/lib/calendar";
@@ -22,10 +21,18 @@ export default async function Home() {
 
   return (
     <>
-      {/* HERO — the pastor preaching in front of the mural, the three things a visitor needs in five seconds */}
+      {/* HERO — the church at sunset, with the three things a visitor needs in five seconds */}
       <section className="relative isolate overflow-hidden bg-brown-deep text-white">
         <div className="relative min-h-[100svh]">
-          <HeroVideo className="absolute inset-0 h-full w-full scale-[1.3] object-cover object-[27%_50%] [translate:0_-13%] md:scale-100 md:object-[center_50%] md:[translate:0_0]" />
+          <Image
+            src={photos.churchSunset.src}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+            aria-hidden
+          />
           <div className="hero-video-wash absolute inset-0" aria-hidden />
           <div className="wrap relative flex min-h-[100svh] flex-col items-center justify-end pb-11 pt-32 text-center md:pb-14">
             <p className="script text-shadow hidden text-[2rem] text-gold-light sm:block sm:text-[2.6rem]" data-reveal>
@@ -130,7 +137,7 @@ export default async function Home() {
                 <Image src={photos.lunchHall.src} alt={photos.lunchHall.alt} width={photos.lunchHall.w} height={photos.lunchHall.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover" />
               </figure>
               <figure className="overflow-hidden rounded-2xl shadow-lg">
-                <Image src={photos.tablesSet.src} alt={photos.tablesSet.alt} width={photos.tablesSet.w} height={photos.tablesSet.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover" />
+                <Image src={photos.welcomeWall.src} alt={photos.welcomeWall.alt} width={photos.welcomeWall.w} height={photos.welcomeWall.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover object-[center_62%]" />
               </figure>
             </div>
           </div>
