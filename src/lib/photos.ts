@@ -32,6 +32,7 @@ export const photos = {
   lunchHall: { src: "/photos/lunch-hall.jpg", w: 1800, h: 1350, alt: "The church family around long tables in the fellowship hall at Sunday lunch" },
   tablesSet: { src: "/photos/tables-set.jpg", w: 1800, h: 1350, alt: "Long tables set with white cloths and a green runner, ready for lunch" },
   congregation: { src: "/photos/congregation.jpg", w: 1800, h: 1153, alt: "The congregation in the burgundy chairs during a service, Pastor Bankert at the pulpit" },
+  churchFamily: { src: "/photos/church-family.jpg", w: 1800, h: 1350, alt: "Members of the Bethel church family gathered together in the sanctuary" },
   youthRally: { src: "/photos/youth-service.jpg", w: 1800, h: 1350, alt: "A packed room of young people taking part in a Bethel youth meeting" },
   vbsKids: { src: "/photos/vbs-children-current.jpg", w: 1800, h: 1350, alt: "Children gathered together during Vacation Bible School at Bethel" },
   vbsSanctuary: { src: "/photos/vbs-sanctuary.jpg", w: 1350, h: 1800, alt: "The sanctuary decorated with flags of the nations for Vacation Bible School" },

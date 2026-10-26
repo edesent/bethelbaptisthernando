@@ -137,7 +137,7 @@ export default async function Home() {
                 <Image src={photos.lunchHall.src} alt={photos.lunchHall.alt} width={photos.lunchHall.w} height={photos.lunchHall.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover" />
               </figure>
               <figure className="overflow-hidden rounded-2xl shadow-lg">
-                <Image src={photos.welcomeWall.src} alt={photos.welcomeWall.alt} width={photos.welcomeWall.w} height={photos.welcomeWall.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover object-[center_62%]" />
+                <Image src={photos.churchFamily.src} alt={photos.churchFamily.alt} width={photos.churchFamily.w} height={photos.churchFamily.h} sizes="(min-width: 1024px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover" />
               </figure>
             </div>
           </div>
