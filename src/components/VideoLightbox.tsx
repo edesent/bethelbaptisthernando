@@ -64,7 +64,7 @@ export default function VideoLightbox({
             </svg>
           </span>
         </span>
-        {caption && <span className="absolute inset-x-0 bottom-0 p-4 text-sm font-semibold text-white/90 sm:text-base">{caption}</span>}
+        {caption && <span className="time absolute inset-x-0 bottom-0 p-3 text-[0.8rem] font-bold leading-snug text-white sm:p-4 sm:text-base">{caption}</span>}
       </button>
 
       {open && (

@@ -157,3 +157,44 @@ function collect(node: unknown, out: Stream[]): string | null {
   walk(node);
   return token;
 }
+
+/* ---------- the real date and time of one stream ---------- */
+
+export type StreamDetail = { id: string; startedAt: string | null; minutes: number | null };
+
+/**
+ * When a stream actually started (and how long it ran), from YouTube's own
+ * player data. About 9 KB per video, and a date never changes, so each one is
+ * cached for a month. Only the videos on the current page are asked for.
+ */
+export async function streamDetail(id: string, key = "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8", ver = "2.20261026.01.00"): Promise<StreamDetail> {
+  try {
+    const r = await fetch(`https://www.youtube.com/youtubei/v1/player?key=${key}&prettyPrint=false`, {
+      method: "POST",
+      headers: { "User-Agent": UA, "Content-Type": "application/json" },
+      body: JSON.stringify({ context: { client: { clientName: "WEB", clientVersion: ver, hl: "en", gl: "US" } }, videoId: id }),
+      next: { revalidate: 60 * 60 * 24 * 30 },
+    });
+    if (!r.ok) throw new Error(String(r.status));
+    const j = (await r.json()) as { microformat?: { playerMicroformatRenderer?: { publishDate?: string; liveBroadcastDetails?: { startTimestamp?: string; endTimestamp?: string } } } };
+    const mf = j.microformat?.playerMicroformatRenderer;
+    const live = mf?.liveBroadcastDetails;
+    const startedAt = live?.startTimestamp ?? mf?.publishDate ?? null;
+    const minutes = live?.startTimestamp && live?.endTimestamp ? Math.round((Date.parse(live.endTimestamp) - Date.parse(live.startTimestamp)) / 60000) : null;
+    return { id, startedAt, minutes };
+  } catch {
+    return { id, startedAt: null, minutes: null };
+  }
+}
+
+const ordinal = (n: number) => `${n}${n % 100 >= 11 && n % 100 <= 13 ? "th" : (["th", "st", "nd", "rd"][n % 10] ?? "th")}`;
+
+/** "Sunday · Aug 24th · 11:00 AM", in the church's time zone. */
+export function fmtStreamDate(iso: string | null, sep = " · ") {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  const parts = new Intl.DateTimeFormat("en-US", { timeZone: TZ, weekday: "long", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }).formatToParts(d);
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "";
+  return `${get("weekday")}${sep}${get("month")} ${ordinal(Number(get("day")))}${sep}${get("hour")}:${get("minute")} ${get("dayPeriod")}`;
+}

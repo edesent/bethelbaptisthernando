@@ -6,7 +6,7 @@ import HeroVideo from "@/components/HeroVideo";
 import VideoLightbox from "@/components/VideoLightbox";
 import Phone from "@/components/Phone";
 import { comingUp, fmtDay, fmtTime, relativeDay, thisWeek } from "@/lib/calendar";
-import { fmtPublished, fmtStart, liveStatus, recentVideos } from "@/lib/youtube";
+import { fmtPublished, fmtStart, fmtStreamDate, liveStatus, recentVideos, streamDetail } from "@/lib/youtube";
 import { photos } from "@/lib/photos";
 import { banners, church, counseling, giving, lunchRotation, pastor } from "@/lib/site";
 import { nowInChurch } from "@/lib/calendar";
@@ -15,6 +15,7 @@ export default async function Home() {
   const [week, specials, live, videos] = await Promise.all([thisWeek(7), comingUp(120, 3), liveStatus(), recentVideos(1)]);
   const latest = videos[0];
   const featured = live.state === "live" ? live.id : latest.id;
+  const latestWhen = fmtStreamDate((await streamDetail(latest.id)).startedAt) || fmtPublished(latest.published);
   const today = nowInChurch().date;
   const liveBanners = banners.filter((b) => !b.endsOn || b.endsOn >= today);
 
@@ -279,8 +280,8 @@ export default async function Home() {
             <div className="mt-6">
               <VideoLightbox
                 id={featured}
-                title={live.state === "live" ? "Bethel Baptist Church, live" : `${latest.title}, ${fmtPublished(latest.published)}`}
-                caption={live.state === "live" ? "Streaming now from the sanctuary" : `Latest: ${fmtPublished(latest.published)}`}
+                title={live.state === "live" ? "Bethel Baptist Church, live" : `${latest.title}, ${latestWhen}`}
+                caption={live.state === "live" ? "Streaming now from the sanctuary" : `Latest · ${latestWhen}`}
                 live={live.state === "live"}
               />
             </div>

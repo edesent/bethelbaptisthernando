@@ -5,7 +5,7 @@ import PageHead from "@/components/PageHead";
 import VideoLightbox from "@/components/VideoLightbox";
 import { photos } from "@/lib/photos";
 import { church } from "@/lib/site";
-import { allStreams, fmtPublished, fmtStart, liveStatus, recentVideos } from "@/lib/youtube";
+import { allStreams, fmtPublished, fmtStart, fmtStreamDate, liveStatus, recentVideos, streamDetail } from "@/lib/youtube";
 
 export const metadata: Metadata = {
   title: "Watch",
@@ -23,6 +23,10 @@ export default async function Watch({ searchParams }: { searchParams: Promise<{ 
   const pages = Math.max(1, Math.ceil(archive.length / PER_PAGE));
   const page = Math.min(pages, Math.max(1, Number(pageParam) || 1));
   const rest = archive.slice((page - 1) * PER_PAGE, page * PER_PAGE);
+  // The real day and time each one started, for this page only.
+  const details = new Map((await Promise.all([featured, ...rest.map((v) => v.id)].map((id) => streamDetail(id)))).map((d) => [d.id, d]));
+  const when = (id: string, fallback: string) => fmtStreamDate(details.get(id)?.startedAt ?? null) || fallback;
+  const featuredWhen = when(featured, fmtPublished(latest.published));
   const pageLink = (n: number) => (n === 1 ? "/watch#services" : `/watch?page=${n}#services`);
   return (
     <>
@@ -42,8 +46,8 @@ export default async function Watch({ searchParams }: { searchParams: Promise<{ 
           <div data-reveal>
             <VideoLightbox
               id={featured}
-              title={live.state === "live" ? "Bethel Baptist Church, live" : `${latest.title}, ${fmtPublished(latest.published)}`}
-              caption={live.state === "live" ? "Streaming now" : `Latest service · ${fmtPublished(latest.published)}`}
+              title={live.state === "live" ? "Bethel Baptist Church, live" : `${latest.title}, ${featuredWhen}`}
+              caption={live.state === "live" ? "Streaming now" : `Latest · ${featuredWhen}`}
               live={live.state === "live"}
             />
             {live.state === "upcoming" && (
@@ -99,7 +103,7 @@ export default async function Watch({ searchParams }: { searchParams: Promise<{ 
           <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4" data-reveal="1">
             {rest.map((v) => (
               <li key={v.id}>
-                <VideoLightbox id={v.id} title={`${v.title} · ${v.when}`} caption={v.when.replace(/^Streamed /, "")} className="shadow-md" />
+                <VideoLightbox id={v.id} title={`${v.title} · ${when(v.id, v.when)}`} caption={when(v.id, v.when.replace(/^Streamed /, ""))} className="shadow-md" />
               </li>
             ))}
           </ul>
