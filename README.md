@@ -37,6 +37,8 @@ Preview: https://bethelhernando.elijahdesent.com (hidden from search engines; se
 
 ## How it works
 
+- **The hero is a silent 30-second loop** of Pastor Bankert preaching in front of the mural (`public/hero.mp4`, 1.2 MB, from a clip Eli supplied; cropped to 85% and graded with ffmpeg). `HeroVideo.tsx` plays it muted everywhere except under `prefers-reduced-motion`, where `public/hero-poster.jpg` stands in. To swap the clip: re-encode at 1280×720, H.264, no audio, `-movflags +faststart`, and replace both files.
+
 - **The church's Google Calendar drives the site.** `src/lib/calendar.ts` reads the public iCal feed of `bethelbaptist2289@gmail.com` (the calendar already embedded on the old site), expands weekly and monthly repeats, and feeds "This week at Bethel" on the home page and everything on `/events`. The pastor keeps editing the calendar he already keeps; the site follows within an hour. If the feed is unreachable the standing services and the `events` list in `site.ts` still show. Special events are anything whose title isn't in the standing list at the top of `calendar.ts`.
 - **The three things on the home page in the first five seconds** (per Pastor Eli's advice to Pastor Bankert): the pastor's photo and a personal welcome, a chat prompt that invites the visitor to write, and current events. All three are in the strip under the hero.
 - **The chat bubble** is Website Chat (`ChatPrompt.tsx` loads the widget; key and wording in `src/config/chat.ts`). It shows the pastor's greeting a few seconds after the page loads; a visitor who writes gets a reply from the pastor's Slack. `OpenChat.tsx` makes any link open it (falls back to `/contact`). If the widget script fails to load, a plain "Message the pastor" button appears instead.

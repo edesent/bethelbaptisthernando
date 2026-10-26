@@ -97,10 +97,10 @@ export default function Rebuild() {
             </p>
           </div>
           <div className="flex flex-wrap gap-3 md:justify-end" data-reveal="1">
-            <a href={giving.url} className="btn btn-gold" rel="noopener">
+            <Link href="/give" className="btn btn-gold">
               Give to the building fund
-            </a>
-            <Link href="/give" className="btn btn-ghost">
+            </Link>
+            <Link href="/give#ways" className="btn btn-ghost">
               Other ways
             </Link>
           </div>

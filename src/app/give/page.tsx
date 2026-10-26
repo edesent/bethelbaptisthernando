@@ -27,7 +27,7 @@ export default function Give() {
       <section className="bg-paper">
         <div className="wrap grid gap-12 py-16 md:grid-cols-[1fr_1fr] md:py-24">
           <div data-reveal>
-            <p className="eyebrow text-gold-deep">Three ways</p>
+            <p id="ways" className="eyebrow text-gold-deep scroll-mt-28">Three ways</p>
             <div className="mt-6 space-y-4">
               <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-ink/5">
                 <div className="p-6 pb-4">

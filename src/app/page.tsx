@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NextUp from "@/components/NextUp";
 import OpenChat from "@/components/OpenChat";
+import HeroVideo from "@/components/HeroVideo";
 import VideoLightbox from "@/components/VideoLightbox";
 import Phone from "@/components/Phone";
 import { comingUp, fmtDay, fmtTime, relativeDay, thisWeek } from "@/lib/calendar";
@@ -13,36 +14,39 @@ export default async function Home() {
   const [week, specials, live, videos] = await Promise.all([thisWeek(7), comingUp(120, 3), liveStatus(), recentVideos(1)]);
   const latest = videos[0];
   const featured = live.state === "live" ? live.id : latest.id;
-  const hero = photos.churchSunset;
 
   return (
     <>
-      {/* HERO — their church at sunset, their verse, the three things a visitor needs in five seconds */}
-      <section className="relative isolate min-h-[92svh] overflow-hidden bg-brown-deep text-white">
-        <Image src={hero.src} alt={hero.alt} fill priority sizes="100vw" className="object-cover object-[62%_60%] md:object-[center_55%]" />
-        <div className="hero-wash absolute inset-0" aria-hidden />
-        <div className="wrap relative flex min-h-[92svh] flex-col justify-end pb-10 pt-32 md:pb-14">
-          <p className="script text-shadow text-[2.4rem] text-gold-light sm:text-5xl" data-reveal>
-            Welcome home
-          </p>
-          <h1 className="display text-shadow mt-1 max-w-5xl text-[3.1rem] leading-[0.94] sm:text-7xl md:text-[5.2rem]" data-reveal="1">
-            A small church in Hernando with a seat saved for you.
-          </h1>
-          <p className="text-shadow mt-6 max-w-xl text-lg text-white/90 sm:text-xl" data-reveal="2">
-            Old-fashioned hymns, the King James Bible, and lunch together every single Sunday. Come once and we’ll know your name.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3" data-reveal="3">
-            <Link href="/visit" className="btn btn-gold text-base">
-              Plan your Sunday
-            </Link>
-            <Link href="/watch" className="btn btn-ghost text-base">
-              <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_0_4px_rgba(239,68,68,0.35)]" aria-hidden />
-              Watch a service
-            </Link>
+      {/* HERO — the pastor preaching in front of the mural, the three things a visitor needs in five seconds */}
+      <section className="relative isolate overflow-hidden bg-brown-deep text-white">
+        <div className="relative min-h-[100svh]">
+          <HeroVideo className="absolute inset-0 h-full w-full scale-[1.3] object-cover object-[27%_50%] [translate:0_-13%] md:scale-100 md:object-[center_50%] md:[translate:0_0]" />
+          <div className="hero-video-wash absolute inset-0" aria-hidden />
+          <div className="wrap relative flex min-h-[100svh] flex-col items-center justify-end pb-11 pt-32 text-center md:pb-14">
+            <p className="script text-shadow hidden text-[2rem] text-gold-light sm:block sm:text-[2.6rem]" data-reveal>
+              Welcome home
+            </p>
+            <h1 className="display text-shadow mt-0.5 max-w-[56rem] text-[2.6rem] leading-[0.94] sm:text-6xl md:text-[4.4rem]" data-reveal="1">
+              A small church in Hernando with a seat saved for you.
+            </h1>
+            <p className="text-shadow mt-4 hidden max-w-xl text-base text-white/90 sm:block sm:text-lg" data-reveal="2">
+              Old-fashioned hymns, the King James Bible, and lunch together every Sunday.
+            </p>
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-3" data-reveal="3">
+              <Link href="/visit" className="btn btn-gold text-base">
+                Plan your Sunday
+              </Link>
+              <Link href="/watch" className="btn btn-ghost text-base">
+                <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_0_4px_rgba(239,68,68,0.35)]" aria-hidden />
+                Watch a service
+              </Link>
+            </div>
           </div>
+        </div>
 
-          {/* The strip: next service · this week · the pastor */}
-          <div className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-white/15 text-ink shadow-2xl ring-1 ring-white/20 backdrop-blur md:grid-cols-3" data-reveal="4">
+        {/* The strip: next service · this week · the pastor */}
+        <div className="wrap relative -mt-6 pb-8 md:-mt-8 md:pb-10">
+          <div className="grid gap-px overflow-hidden rounded-2xl bg-white/15 text-ink shadow-2xl ring-1 ring-white/20 md:grid-cols-3" data-reveal="4">
             <div className="bg-paper/95 p-5">
               <NextUp compact />
             </div>
@@ -364,10 +368,10 @@ export default async function Home() {
               <footer className="mt-2 text-gold-light">2 Corinthians 9:7</footer>
             </blockquote>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href={giving.url} className="btn btn-gold" rel="noopener">
+              <Link href="/give" className="btn btn-gold">
                 {giving.label}
-              </a>
-              <Link href="/give" className="btn btn-ghost">
+              </Link>
+              <Link href="/give#ways" className="btn btn-ghost">
                 Other ways to give
               </Link>
             </div>
