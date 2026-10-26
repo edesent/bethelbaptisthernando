@@ -1,0 +1,52 @@
+/**
+ * Every photo on the site, with its size and what it shows. All of them are
+ * the church's own, from its website media library, its Facebook page and
+ * its YouTube stream. No stock, no AI.
+ */
+export const photos = {
+  churchSunset: { src: "/photos/church-sunset.jpg", w: 1000, h: 500, alt: "The white church with its steeple on McGee Drive at sunset, the sky gold and pink behind the trees" },
+  churchFront: { src: "/photos/church-front.jpg", w: 640, h: 480, alt: "The front of the church on a sunny day: white metal siding, black trim, a tall white steeple" },
+  steepleSunset: { src: "/photos/steeple-sunset.jpg", w: 640, h: 480, alt: "The steeple against a pink evening sky" },
+  pastorFamily: { src: "/photos/pastor-family.jpg", w: 640, h: 480, alt: "Pastor Brandon Bankert with his wife and their two children in front of the pulpit" },
+  pastorFamilyGazebo: { src: "/photos/pastor-family-gazebo.jpg", w: 575, h: 620, alt: "The Bankert family at a white gazebo" },
+  pastorAndWife: { src: "/photos/pastor-and-wife.jpg", w: 480, h: 640, alt: "Pastor Bankert in a flag tie with his wife outside the church" },
+  sanctuary: { src: "/photos/sanctuary.jpg", w: 640, h: 480, alt: "The sanctuary after the rebuild: burgundy chairs, a new wood platform, a wooden cross on the white wall" },
+  sanctuaryMural: { src: "/photos/sanctuary-mural.jpg", w: 640, h: 480, alt: "The hand-painted mural behind the pulpit: a cross on a golden hill under a sunrise sky" },
+  sanctuaryBefore: { src: "/photos/sanctuary-before.jpg", w: 640, h: 480, alt: "The sanctuary during the rebuild, chairs piled to one side and ladders against the walls" },
+  muralPainting: { src: "/photos/mural-painting.jpg", w: 640, h: 480, alt: "A member on a ladder painting the sky of the mural behind the pulpit" },
+  rampBefore: { src: "/photos/ramp-before.jpg", w: 640, h: 480, alt: "The old wooden ramp torn out down to the posts" },
+  rampAfter: { src: "/photos/ramp-after.jpg", w: 640, h: 480, alt: "The new ramp, fresh lumber and a new rail along the side of the building" },
+  stepsAfter: { src: "/photos/steps-after.jpg", w: 640, h: 480, alt: "New wooden steps and rail at the side door" },
+  signBefore: { src: "/photos/sign-before.jpg", w: 640, h: 480, alt: "Men taking down the old rusted road sign" },
+  signAfter: { src: "/photos/sign-after.jpg", w: 640, h: 480, alt: "The new Bethel Baptist Church sign at the road, an arrow pointing to the church" },
+  floorBefore: { src: "/photos/floor-before.jpg", w: 640, h: 480, alt: "Two men on their knees laying subfloor on the platform" },
+  floorAfter: { src: "/photos/floor-after.jpg", w: 480, h: 640, alt: "New wood-look flooring running down the hall" },
+  roof: { src: "/photos/roof.jpg", w: 640, h: 480, alt: "On the roof: a fresh white coating going on under a blue Florida sky" },
+  ordination: { src: "/photos/ordination.jpg", w: 1188, h: 1280, alt: "Pastors laying hands on Brandon Bankert at his ordination, December 2025" },
+  campfire: { src: "/photos/campfire.jpg", w: 640, h: 480, alt: "The church in folding chairs around a campfire at night" },
+  van: { src: "/photos/van.jpg", w: 720, h: 540, alt: "The church van, lettered Bethel Baptist Church, parked under the oaks" },
+  welcomeSign: { src: "/photos/welcome-sign.jpg", w: 480, h: 640, alt: "A hand-lettered Welcome to Bethel sign inside the front door, flowers on a table beneath it" },
+  kidsBuckets: { src: "/photos/kids-buckets.jpg", w: 640, h: 480, alt: "Two children racing with buckets down the fellowship hall" },
+  pastorPreaching: { src: "/photos/pastor-preaching.jpg", w: 1280, h: 720, alt: "Pastor Bankert preaching from the pulpit in front of the mural, from the Sunday livestream" },
+  lunchLadies: { src: "/photos/lunch-ladies.jpg", w: 1800, h: 1559, alt: "Ladies around a long table set with a pink runner and flowers at a fellowship lunch" },
+  lunchHall: { src: "/photos/lunch-hall.jpg", w: 1800, h: 1350, alt: "The church family around long tables in the fellowship hall at Sunday lunch" },
+  tablesSet: { src: "/photos/tables-set.jpg", w: 1800, h: 1350, alt: "Long tables set with white cloths and a green runner, ready for lunch" },
+  congregation: { src: "/photos/congregation.jpg", w: 1800, h: 1153, alt: "The congregation in the burgundy chairs during a service, Pastor Bankert at the pulpit" },
+  youthRally: { src: "/photos/youth-rally.jpg", w: 1800, h: 1350, alt: "A sanctuary full of teenagers at a youth rally, the pastor preaching" },
+  vbsKids: { src: "/photos/vbs-kids.jpg", w: 1800, h: 1350, alt: "Children and leaders in green shirts at Vacation Bible School" },
+  vbsSanctuary: { src: "/photos/vbs-sanctuary.jpg", w: 1350, h: 1800, alt: "The sanctuary decorated with flags of the nations for Vacation Bible School" },
+  lawnGames: { src: "/photos/lawn-games.jpg", w: 1800, h: 1350, alt: "Children and adults playing games on the lawn under the oaks" },
+  airHockey: { src: "/photos/air-hockey.jpg", w: 1800, h: 1350, alt: "Kids around an air hockey table in the fellowship hall" },
+  depotTable: { src: "/photos/depot-table.jpg", w: 1635, h: 1077, alt: "Two members at the Bethel Baptist table at the Depot market in Inverness" },
+  depot: { src: "/photos/depot.jpg", w: 1170, h: 879, alt: "The old train depot in Inverness on market day" },
+  chalkArtist: { src: "/photos/chalk-artist.jpg", w: 1800, h: 1350, alt: "A chalk artist’s finished drawing, Jesus is Knocking, on an easel in the sanctuary" },
+  bathroomReno: { src: "/photos/bathroom-reno.jpg", w: 1800, h: 1350, alt: "A freshly rebuilt restroom with new flooring and fixtures" },
+  yardWork: { src: "/photos/yard-work.jpg", w: 1350, h: 1800, alt: "Three members working in the yard beside the fellowship hall" },
+  pastorWifeSinging: { src: "/photos/pastor-wife-singing.jpg", w: 1170, h: 693, alt: "Pastor Bankert and his wife singing at the front of the sanctuary" },
+  buildingOld: { src: "/photos/building-old.jpg", w: 1800, h: 1800, alt: "The church before the rebuild, pale blue siding with red letters under Spanish moss" },
+  buildingBw: { src: "/photos/building-bw.jpg", w: 1069, h: 563, alt: "An old black-and-white photo of the church building" },
+  piano: { src: "/photos/piano.jpg", w: 1350, h: 1800, alt: "A member playing the upright piano in the sanctuary" },
+  girlCup: { src: "/photos/girl-cup.jpg", w: 1350, h: 1800, alt: "A girl holding up a fruit cup at a church lunch" },
+} as const;
+
+export type PhotoKey = keyof typeof photos;
