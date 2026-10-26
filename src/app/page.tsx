@@ -49,6 +49,40 @@ export default async function Home() {
 
       </section>
 
+      {/* THE PASTOR — his face and his welcome, first thing after the hero */}
+      <section id="pastor" className="bg-paper">
+        <div className="wrap grid items-center gap-10 py-16 md:grid-cols-[0.8fr_1.2fr] md:gap-14 md:py-24">
+          <div className="relative mx-auto w-full max-w-sm" data-reveal>
+            <figure className="overflow-hidden rounded-2xl shadow-2xl">
+              <Image src={photos.pastorAndWife.src} alt={photos.pastorAndWife.alt} width={photos.pastorAndWife.w} height={photos.pastorAndWife.h} sizes="(min-width: 768px) 32vw, 90vw" priority className="h-auto w-full" />
+            </figure>
+            <figure className="absolute -bottom-6 -right-4 w-32 overflow-hidden rounded-xl border-4 border-paper shadow-xl sm:w-40 md:-right-8">
+              <Image src={photos.pastorFamily.src} alt={photos.pastorFamily.alt} width={photos.pastorFamily.w} height={photos.pastorFamily.h} sizes="160px" className="h-auto w-full" />
+            </figure>
+          </div>
+          <div data-reveal="1">
+            <p className="eyebrow text-gold-deep">A note from the pastor</p>
+            <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">
+              Hi, I’m <span className="script text-gold">Pastor Brandon.</span>
+            </h2>
+            <blockquote className="mt-6 text-xl leading-relaxed text-ink/85 sm:text-2xl">
+              “If you walk through our door Sunday, I will meet you there, and you’ll leave knowing a few names. We’re a small church, we
+              sing the old hymns, we preach the King James Bible, and we eat lunch together every week. Write me anytime. I read every
+              message myself.”
+            </blockquote>
+            <p className="mt-4 text-muted">
+              {pastor.styled} · pastor since {pastor.since} · husband and dad of two
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <OpenChat className="btn btn-gold">Write to Pastor Brandon</OpenChat>
+              <Link href="/about#pastor" className="btn btn-ghost btn-ghost-ink">
+                Meet the Bankerts
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHAT A SUNDAY IS LIKE — the walk-through */}
       <section className="bg-paper">
         <div className="wrap py-20 md:py-28">
@@ -130,42 +164,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* THE PASTOR */}
-      <section id="pastor" className="bg-paper">
-        <div className="wrap grid items-center gap-12 py-20 md:grid-cols-[0.95fr_1.05fr] md:py-28">
-          <div className="relative" data-reveal>
-            <figure className="overflow-hidden rounded-2xl shadow-2xl">
-              <Image src={photos.pastorFamily.src} alt={photos.pastorFamily.alt} width={photos.pastorFamily.w} height={photos.pastorFamily.h} sizes="(min-width: 768px) 45vw, 100vw" className="h-auto w-full" />
-            </figure>
-            <figure className="absolute -bottom-6 -right-3 w-36 overflow-hidden rounded-xl border-4 border-paper shadow-xl sm:w-44 md:-right-6">
-              <Image src={photos.ordination.src} alt={photos.ordination.alt} width={photos.ordination.w} height={photos.ordination.h} sizes="176px" className="h-auto w-full" />
-            </figure>
-          </div>
-          <div data-reveal="1">
-            <p className="eyebrow text-gold-deep">Our pastor</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">{pastor.styled}</h2>
-            <p className="mt-2 text-lg text-muted">Pastor since {pastor.since} · ordained December 2025 · husband and dad of two</p>
-            <div className="rule-gold mt-5" />
-            <div className="prose-site mt-6 text-lg text-ink/85">
-              <p>
-                The Bankerts came to Bethel in early 2025 to help fill the pulpit and sing. Within a few months the church voted,
-                unanimously, to make Brandon their pastor. He had been an assistant pastor and Christian school teacher for ten years, and
-                a bus-ministry man before that, bringing children to church by the vanload.
-              </p>
-              <p>
-                In his own words: “God has given me a heart for the lost and a love for God’s people.” You will see both on a Sunday.
-              </p>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/about#pastor" className="btn btn-ink">
-                More about the Bankerts
-              </Link>
-              <OpenChat className="btn btn-ghost btn-ghost-ink">Write to the pastor</OpenChat>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* WHAT'S GOING ON — their flyers slide, the calendar beside them */}
       <section id="events" className="bg-paper-deep scroll-mt-24">
         <div className="wrap py-20 md:py-28">
@@ -177,8 +175,7 @@ export default async function Home() {
               </h2>
             </div>
             <p className="text-lg text-ink/80" data-reveal="1">
-              Harvest Fest, Sunday suppers, youth night, the van, the table at the Depot. The flyers are the church’s own, and the
-              list beside them comes straight from the church’s calendar.
+              Harvest Fest, Sunday suppers, youth night, the van, the table at the Depot. The flyers are the church’s own, and the lists below come straight from the church’s calendar.
             </p>
           </div>
           <div className="mt-10" data-reveal>
