@@ -39,7 +39,7 @@ export default async function Home() {
               Welcome home
             </p>
             <h1 className="display text-shadow mt-0.5 max-w-[56rem] text-[2.6rem] leading-[0.94] sm:text-6xl md:text-[4.4rem]" data-reveal="1">
-              A small church in Hernando with a seat saved for you.
+              A family church in Hernando with a seat saved for you.
             </h1>
             <p className="text-shadow mt-4 hidden max-w-xl text-base text-white/90 sm:block sm:text-lg" data-reveal="2">
               Old-fashioned hymns, the King James Bible, and lunch together every Sunday.
@@ -75,7 +75,7 @@ export default async function Home() {
               Hi, I’m <span className="script text-gold">Pastor Brandon.</span>
             </h2>
             <blockquote className="mt-6 text-xl leading-relaxed text-ink/85 sm:text-2xl">
-              “If you walk through our door Sunday, I will meet you there, and you’ll leave knowing a few names. We’re a small church, we
+              “If you walk through our door Sunday, I will meet you there, and you’ll leave knowing a few names. We’re a church family, we
               sing the old hymns, we preach the King James Bible, and we eat lunch together every week. Write me anytime. I read every
               message myself.”
             </blockquote>
