@@ -2,13 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import NextUp from "@/components/NextUp";
 import OpenChat from "@/components/OpenChat";
+import VideoLightbox from "@/components/VideoLightbox";
 import Phone from "@/components/Phone";
 import { comingUp, fmtDay, fmtTime, relativeDay, thisWeek } from "@/lib/calendar";
+import { fmtPublished, fmtStart, liveStatus, recentVideos } from "@/lib/youtube";
 import { photos } from "@/lib/photos";
 import { church, counseling, giving, lunchRotation, pastor } from "@/lib/site";
 
 export default async function Home() {
-  const [week, specials] = await Promise.all([thisWeek(7), comingUp(120, 3)]);
+  const [week, specials, live, videos] = await Promise.all([thisWeek(7), comingUp(120, 3), liveStatus(), recentVideos(1)]);
+  const latest = videos[0];
+  const featured = live.state === "live" ? live.id : latest.id;
   const hero = photos.churchSunset;
 
   return (
@@ -328,23 +332,25 @@ export default async function Home() {
       <section className="bg-brown-deep text-white">
         <div className="wrap grid gap-12 py-20 md:grid-cols-2 md:py-28">
           <div data-reveal>
-            <p className="eyebrow text-gold-light">Every service, live</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">Watch from home.</h2>
+            <p className="eyebrow text-gold-light">{live.state === "live" ? "Live right now" : "Every service, live"}</p>
+            <h2 className="display mt-3 text-4xl sm:text-5xl">{live.state === "live" ? "We’re on. Come on in." : "Watch from home."}</h2>
             <p className="mt-5 text-white/80">
-              Sunday School, both Sunday services and Wednesday night all stream on YouTube. If you’re homebound or just checking us out
-              first, that’s a fine way to start.
+              {live.state === "live"
+                ? "The service is streaming this minute. Tap the picture and you’re in the room."
+                : live.state === "upcoming"
+                  ? `Next stream ${fmtStart(live.startsAt)}. Until then, here is the latest one.`
+                  : "Sunday School, both Sunday services and Wednesday night all stream on YouTube. This is the latest one; tap it to watch right here."}
             </p>
-            <Link href="/watch" className="group mt-6 block overflow-hidden rounded-2xl">
-              <span className="relative block">
-                <Image src={photos.pastorPreaching.src} alt={photos.pastorPreaching.alt} width={photos.pastorPreaching.w} height={photos.pastorPreaching.h} sizes="(min-width: 768px) 50vw, 100vw" className="w-full object-cover" />
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-brown shadow-xl transition group-hover:scale-105">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </span>
-                </span>
-              </span>
+            <div className="mt-6">
+              <VideoLightbox
+                id={featured}
+                title={live.state === "live" ? "Bethel Baptist Church, live" : `${latest.title}, ${fmtPublished(latest.published)}`}
+                caption={live.state === "live" ? "Streaming now from the sanctuary" : `Latest: ${fmtPublished(latest.published)}`}
+                live={live.state === "live"}
+              />
+            </div>
+            <Link href="/watch" className="mt-4 inline-block text-sm font-bold text-gold-light underline underline-offset-4">
+              More services and the full channel
             </Link>
           </div>
           <div data-reveal="1">

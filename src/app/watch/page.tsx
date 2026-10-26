@@ -2,15 +2,21 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
+import VideoLightbox from "@/components/VideoLightbox";
 import { photos } from "@/lib/photos";
 import { church } from "@/lib/site";
+import { fmtPublished, fmtStart, liveStatus, recentVideos } from "@/lib/youtube";
 
 export const metadata: Metadata = {
   title: "Watch",
   description: `${church.name} streams every service live on YouTube: Sunday School, both Sunday services and Wednesday Bible study.`,
 };
 
-export default function Watch() {
+export default async function Watch() {
+  const [live, videos] = await Promise.all([liveStatus(), recentVideos(7)]);
+  const latest = videos[0];
+  const featured = live.state === "live" ? live.id : latest.id;
+  const rest = videos.filter((v) => v.id !== featured).slice(0, 6);
   return (
     <>
       <PageHead
@@ -27,17 +33,29 @@ export default function Watch() {
       <section className="bg-paper">
         <div className="wrap grid gap-12 py-16 md:grid-cols-[1.2fr_0.8fr] md:py-24">
           <div data-reveal>
-            <div className="overflow-hidden rounded-2xl bg-black shadow-2xl">
-              <iframe
-                title="Bethel Baptist Church on YouTube"
-                src="https://www.youtube-nocookie.com/embed?listType=user_uploads&list=bethelbaptistchurch-hernan2627"
-                className="aspect-video w-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-              />
-            </div>
-            <p className="mt-3 text-sm text-muted">If the player doesn’t load, the channel link below has everything.</p>
+            <VideoLightbox
+              id={featured}
+              title={live.state === "live" ? "Bethel Baptist Church, live" : `${latest.title}, ${fmtPublished(latest.published)}`}
+              caption={live.state === "live" ? "Streaming now" : `Latest service · ${fmtPublished(latest.published)}`}
+              live={live.state === "live"}
+            />
+            {live.state === "upcoming" && (
+              <p className="mt-3 text-sm text-muted">
+                Next stream <span className="time font-bold text-ink">{fmtStart(live.startsAt)}</span>.
+              </p>
+            )}
+            {rest.length > 0 && (
+              <>
+                <p className="eyebrow mt-10 text-gold-deep">Recent services</p>
+                <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                  {rest.map((v) => (
+                    <li key={v.id}>
+                      <VideoLightbox id={v.id} title={`${v.title}, ${fmtPublished(v.published)}`} caption={fmtPublished(v.published).replace(/^(\w+), /, "$1 · ")} className="shadow-md" />
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
           <div data-reveal="1">
             <p className="eyebrow text-gold-deep">On YouTube</p>

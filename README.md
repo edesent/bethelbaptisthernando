@@ -43,7 +43,7 @@ Preview: https://bethelhernando.elijahdesent.com (hidden from search engines; se
 - **Forms** (ride request, prayer, contact) post to `/api/form`, which delivers into the same Slack channel through Website Chat. Until Slack is connected on the chat side the backend answers 503 and the form honestly tells people to call the church. Setting `FORM_WEBHOOK_URL` (a Slack/Teams incoming webhook) overrides that route. Spam defences: signed load-time token, honeypot, rate limit, no links in free text, and an email address in a "phone or email" field is allowed.
 - **Next service** is worked out from `services` in the church's time zone. **Events expire by themselves**; pages re-render hourly (`revalidate = 3600` in `layout.tsx`). Keep that line.
 - **The rebuild** (`/about/rebuild`) is before/after pairs from the pastor's own photos of the 2025–26 work.
-- **Watch** embeds the channel's uploads playlist; they stream every service (seven streams on Sunday, October 25, 2026).
+- **Watch** (`src/lib/youtube.ts`) reads the channel RSS feed (every 10 minutes) for the latest stream and the channel's /live page (every 5 minutes) for a stream in progress. The home page and /watch show whichever applies, playing in a lightbox (`VideoLightbox.tsx`) rather than sending people to YouTube. A scheduled stream only shows if it is within the week; the channel has an old scheduled one sitting there. If YouTube can't be read, the last known video id in `youtube.ts` is used.
 - **Old-site paths redirect** (`next.config.ts`): /welcome, /what-to-expect, /pastor, /history, /beliefs, /gallery, /give-online.
 
 ## Confirm with the church
