@@ -350,10 +350,13 @@ export default async function Home() {
           <div data-reveal="1">
             <p className="eyebrow text-gold-light">Giving</p>
             <h2 className="display mt-3 text-4xl sm:text-5xl">Help keep the doors open.</h2>
-            <p className="mt-5 text-white/80">
-              Bethel is a small church that pays its own way. Tithes and offerings keep the lights on, the van running and the gospel
-              going out on McGee Drive and at the Depot. The building fund is still working toward {giving.buildingGoal} of repairs.
-            </p>
+            <blockquote className="mt-5 border-l-4 border-gold pl-5">
+              <p className="display-soft text-xl italic text-white/90 sm:text-2xl">
+                “Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a
+                cheerful giver.”
+              </p>
+              <footer className="mt-2 text-gold-light">2 Corinthians 9:7</footer>
+            </blockquote>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={giving.url} className="btn btn-gold" rel="noopener">
                 {giving.label}
