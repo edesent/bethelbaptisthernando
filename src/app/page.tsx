@@ -63,10 +63,10 @@ export default async function Home() {
         <div className="wrap grid items-center gap-10 py-16 md:grid-cols-[0.8fr_1.2fr] md:gap-14 md:py-24">
           <div className="relative mx-auto w-full max-w-sm" data-reveal>
             <figure className="overflow-hidden rounded-2xl shadow-2xl">
-              <Image src={photos.pastorAndWife.src} alt={photos.pastorAndWife.alt} width={photos.pastorAndWife.w} height={photos.pastorAndWife.h} sizes="(min-width: 768px) 32vw, 90vw" priority className="h-auto w-full" />
+              <Image src={photos.pastorFamilyGazebo.src} alt={photos.pastorFamilyGazebo.alt} width={photos.pastorFamilyGazebo.w} height={photos.pastorFamilyGazebo.h} sizes="(min-width: 768px) 32vw, 90vw" priority className="h-auto w-full" />
             </figure>
             <figure className="absolute -bottom-6 -right-4 w-32 overflow-hidden rounded-xl border-4 border-paper shadow-xl sm:w-40 md:-right-8">
-              <Image src={photos.pastorFamily.src} alt={photos.pastorFamily.alt} width={photos.pastorFamily.w} height={photos.pastorFamily.h} sizes="160px" className="h-auto w-full" />
+              <Image src={photos.ordination.src} alt={photos.ordination.alt} width={photos.ordination.w} height={photos.ordination.h} sizes="160px" className="h-auto w-full" />
             </figure>
           </div>
           <div data-reveal="1">

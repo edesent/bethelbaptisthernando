@@ -110,7 +110,7 @@ export default function Visit() {
                 <Image src={photos.vbsKids.src} alt={photos.vbsKids.alt} width={photos.vbsKids.w} height={photos.vbsKids.h} sizes="20vw" className="aspect-square w-full object-cover" />
               </figure>
               <figure className="overflow-hidden rounded-2xl shadow-lg">
-                <Image src={photos.piano.src} alt={photos.piano.alt} width={photos.piano.w} height={photos.piano.h} sizes="20vw" className="aspect-square w-full object-cover" />
+                <Image src={photos.childrenPraying.src} alt={photos.childrenPraying.alt} width={photos.childrenPraying.w} height={photos.childrenPraying.h} sizes="20vw" className="aspect-square w-full object-cover" />
               </figure>
             </div>
           </div>
