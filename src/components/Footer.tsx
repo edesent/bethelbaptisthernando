@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { church, nav, services } from "@/lib/site";
 import { fmtTime } from "@/lib/calendar";
-import Logo from "./Logo";
+import Brand from "./Brand";
 import Phone from "./Phone";
 
 export default function Footer() {
@@ -11,13 +11,8 @@ export default function Footer() {
     <footer className="bg-brown-deep text-white">
       <div className="wrap grid gap-10 py-14 md:grid-cols-[1.3fr_1fr_1fr] md:py-20">
         <div>
-          <div className="flex items-center gap-4">
-            <Logo tone="gold" className="h-16 w-auto" />
-            <div>
-              <p className="display-soft text-3xl">Bethel Baptist Church</p>
-              <p className="eyebrow mt-1 text-[0.62rem] text-gold-light">An independent Baptist church · Hernando, Florida</p>
-            </div>
-          </div>
+          <Brand className="h-20" />
+          <p className="eyebrow mt-4 text-[0.62rem] text-gold-light">An independent Baptist church · Hernando, Florida</p>
           <p className="script mt-5 text-3xl text-gold-light">A good Church in Hernando, Florida</p>
         </div>
         <div>

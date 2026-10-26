@@ -11,8 +11,8 @@
   --cream: #e9e2d6;
   --ink: #241d19;
   --muted: #6e635b;
-  --gold: #b8891c;
-  --gold-deep: #8f6a12;
+  --gold: #a7821a;
+  --gold-deep: #7f6210;
   --gold-light: #e8c86a;
   --gold-pale: #f6e8bf;
   --brown: #2f2824;
@@ -91,11 +91,12 @@ body {
     line-height: 1;
     letter-spacing: 0;
   }
+  /* Thin, wide capitals, the way the logo sets "Baptist Church". */
   .eyebrow {
     font-family: var(--font-sans);
-    font-weight: 700;
+    font-weight: 500;
     font-size: 0.76rem;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
   }
   .wrap {

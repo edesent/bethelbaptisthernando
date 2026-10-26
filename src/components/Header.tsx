@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { church, nav } from "@/lib/site";
-import Logo from "./Logo";
+import Brand from "./Brand";
 
 /**
  * The header is a sibling of the phone menu on purpose: a backdrop-blur
@@ -27,19 +27,11 @@ export default function Header() {
   return (
     <>
       <header
-        className={
-          onHome
-            ? "absolute inset-x-0 top-0 z-40 text-white"
-            : "sticky top-0 z-40 border-b border-ink/10 bg-paper/92 text-ink backdrop-blur"
-        }
+        className={onHome ? "absolute inset-x-0 top-0 z-40 text-white" : "sticky top-0 z-40 bg-brown text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.6)]"}
       >
         <div className="wrap flex h-[4.75rem] items-center justify-between gap-4 md:h-[5.5rem]">
-          <Link href="/" className="flex items-center gap-3" aria-label={`${church.name} home`}>
-            <Logo tone={onHome ? "white" : "gold"} className="h-11 w-auto shrink-0 md:h-13" />
-            <span className="leading-none">
-              <span className="display-soft block text-[1.55rem] tracking-tight md:text-[1.8rem]">Bethel</span>
-              <span className={`eyebrow mt-1 block text-[0.6rem] ${onHome ? "text-gold-light" : "text-gold-deep"}`}>Baptist Church · Hernando, FL</span>
-            </span>
+          <Link href="/" className="flex items-center" aria-label={`${church.name} home`}>
+            <Brand className={`h-12 md:h-[4.1rem] ${onHome ? "drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]" : ""}`} />
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
@@ -48,19 +40,13 @@ export default function Header() {
                 key={n.href}
                 href={n.href}
                 className={`rounded-full px-3.5 py-2 text-[0.95rem] font-semibold transition ${
-                  path === n.href || (n.href !== "/" && path.startsWith(n.href))
-                    ? onHome
-                      ? "bg-white/15"
-                      : "bg-brown text-white"
-                    : onHome
-                      ? "text-shadow hover:bg-white/12"
-                      : "hover:bg-ink/6"
+                  path === n.href || (n.href !== "/" && path.startsWith(n.href)) ? "bg-white/15" : onHome ? "text-shadow hover:bg-white/12" : "hover:bg-white/10"
                 }`}
               >
                 {n.label}
               </Link>
             ))}
-            <Link href="/visit" className={`btn ml-3 px-5 py-2.5 text-sm ${onHome ? "btn-white" : "btn-gold"}`}>
+            <Link href="/visit" className="btn btn-gold ml-3 px-5 py-2.5 text-sm">
               Sunday <span className="time">10:00 AM</span>
             </Link>
           </nav>
@@ -68,7 +54,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className={`inline-flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-bold lg:hidden ${onHome ? "border-white/60 text-shadow" : "border-ink/20"}`}
+            className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 px-4 py-2 text-sm font-bold lg:hidden"
             aria-expanded={open}
             aria-controls="phone-menu"
           >
@@ -89,9 +75,8 @@ export default function Header() {
         aria-hidden={!open}
       >
         <div className="wrap flex h-[4.75rem] items-center justify-between">
-          <span className="flex items-center gap-3">
-            <Logo tone="gold" className="h-11 w-auto" />
-            <span className="display-soft text-2xl">Bethel</span>
+          <span className="flex items-center">
+            <Brand className="h-12" />
           </span>
           <button
             type="button"

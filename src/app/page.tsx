@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import NextUp from "@/components/NextUp";
+import Banners from "@/components/Banners";
 import OpenChat from "@/components/OpenChat";
 import HeroVideo from "@/components/HeroVideo";
 import VideoLightbox from "@/components/VideoLightbox";
@@ -8,12 +8,15 @@ import Phone from "@/components/Phone";
 import { comingUp, fmtDay, fmtTime, relativeDay, thisWeek } from "@/lib/calendar";
 import { fmtPublished, fmtStart, liveStatus, recentVideos } from "@/lib/youtube";
 import { photos } from "@/lib/photos";
-import { church, counseling, giving, lunchRotation, pastor } from "@/lib/site";
+import { banners, church, counseling, giving, lunchRotation, pastor } from "@/lib/site";
+import { nowInChurch } from "@/lib/calendar";
 
 export default async function Home() {
   const [week, specials, live, videos] = await Promise.all([thisWeek(7), comingUp(120, 3), liveStatus(), recentVideos(1)]);
   const latest = videos[0];
   const featured = live.state === "live" ? live.id : latest.id;
+  const today = nowInChurch().date;
+  const liveBanners = banners.filter((b) => !b.endsOn || b.endsOn >= today);
 
   return (
     <>
@@ -44,53 +47,6 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* The strip: next service · this week · the pastor */}
-        <div className="wrap relative -mt-6 pb-8 md:-mt-8 md:pb-10">
-          <div className="grid gap-px overflow-hidden rounded-2xl bg-white/15 text-ink shadow-2xl ring-1 ring-white/20 md:grid-cols-3" data-reveal="4">
-            <div className="bg-paper/95 p-5">
-              <NextUp compact />
-            </div>
-            <div className="bg-paper/95 p-5">
-              <p className="eyebrow text-gold-deep">This week at Bethel</p>
-              <ul className="mt-3 divide-y divide-ink/10">
-                {week.slice(0, 5).map((e) => (
-                  <li key={`${e.date}${e.time24}${e.title}`} className="flex items-baseline justify-between gap-3 py-1.5">
-                    <span className="min-w-0 truncate font-semibold">{e.title}</span>
-                    <span className="time shrink-0 text-sm text-muted">
-                      {relativeDay(e.date).replace(/,.*$/, "")}
-                      {e.time24 && <> · {fmtTime(e.time24)}</>}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/events" className="mt-3 inline-block text-sm font-bold text-gold-deep underline underline-offset-4">
-                The whole calendar
-              </Link>
-            </div>
-            <div className="flex gap-4 bg-brown p-5 text-white">
-              <Image
-                src={photos.pastorAndWife.src}
-                alt={photos.pastorAndWife.alt}
-                width={96}
-                height={128}
-                className="h-28 w-[5.25rem] shrink-0 rounded-xl object-cover object-[35%_20%] ring-2 ring-gold"
-              />
-              <div className="min-w-0">
-                <p className="eyebrow text-gold-light">A note from the pastor</p>
-                <p className="mt-2 text-[0.95rem] leading-snug text-white/90">
-                  “Hi, I’m Pastor Brandon. If you walk through our door Sunday, I will meet you there, and you’ll leave knowing a few
-                  names. Write me anytime.”
-                </p>
-                <span className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm font-bold text-gold-light">
-                  <OpenChat className="underline underline-offset-4">Write to me</OpenChat>
-                  <Link href="/about#pastor" className="underline underline-offset-4">
-                    Meet the Bankerts
-                  </Link>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* WHAT A SUNDAY IS LIKE — the walk-through */}
@@ -210,85 +166,63 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* THE REBUILD */}
-      <section className="bg-brown text-white">
+      {/* WHAT'S GOING ON — their flyers slide, the calendar beside them */}
+      <section id="events" className="bg-paper-deep scroll-mt-24">
         <div className="wrap py-20 md:py-28">
-          <div className="grid gap-10 md:grid-cols-[1fr_1fr] md:items-end">
+          <div className="grid gap-8 md:grid-cols-[1fr_1fr] md:items-end">
             <div data-reveal>
-              <p className="eyebrow text-gold-light">2025 to 2026</p>
+              <p className="eyebrow text-gold-deep">What’s going on</p>
               <h2 className="display mt-3 text-4xl sm:text-5xl md:text-6xl">
-                A handful of people rebuilt this house <span className="script text-gold-light">with their own hands.</span>
+                At Bethel <span className="script text-gold">this season.</span>
               </h2>
             </div>
-            <p className="text-lg text-white/85" data-reveal="1">
-              New floors. A new ramp and steps. The roof coated. The sanctuary painted, with a mural of the cross behind the pulpit that a
-              member painted by hand. A new sign at the road. Rotten decking torn out on Saturdays and rebuilt before Sunday. Grand
-              reopening March 1, 2026. These are the people you will sit next to.
+            <p className="text-lg text-ink/80" data-reveal="1">
+              Harvest Fest, Sunday suppers, youth night, the van, the table at the Depot. The flyers are the church’s own, and the
+              list beside them comes straight from the church’s calendar.
             </p>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4" data-reveal="2">
-            {[
-              [photos.rampBefore, "Before"],
-              [photos.rampAfter, "After"],
-              [photos.sanctuaryBefore, "Before"],
-              [photos.sanctuaryMural, "After"],
-            ].map(([p, tag], i) => {
-              const ph = p as (typeof photos)[keyof typeof photos];
-              return (
-                <figure key={i} className="relative overflow-hidden rounded-2xl">
-                  <Image src={ph.src} alt={ph.alt} width={ph.w} height={ph.h} sizes="(min-width: 768px) 25vw, 50vw" className="aspect-[4/3] h-full w-full object-cover" />
-                  <figcaption className={`tag absolute left-3 top-3 ${tag === "After" ? "bg-gold text-white" : "bg-white/90 text-brown"}`}>{tag as string}</figcaption>
-                </figure>
-              );
-            })}
-          </div>
-          <Link href="/about/rebuild" className="btn btn-white mt-10">
-            See the whole rebuild
-          </Link>
-        </div>
-      </section>
-
-      {/* COMING UP — straight from the church's own calendar */}
-      <section className="bg-paper-deep">
-        <div className="wrap py-20 md:py-28">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div className="mt-10 grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-10">
             <div data-reveal>
-              <p className="eyebrow text-gold-deep">Coming up</p>
-              <h2 className="display mt-3 text-4xl sm:text-5xl">What’s going on at Bethel.</h2>
-              <p className="mt-5 text-lg text-ink/80">
-                The next three things on the church’s Google Calendar. Potlucks, outreach Saturdays, conferences, festivals. It reads the
-                calendar itself, so it is never out of date.
-              </p>
-              <Link href="/events" className="btn btn-ink mt-7">
-                Full calendar
-              </Link>
+              <Banners items={liveBanners} />
             </div>
-            <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1" data-reveal="1">
-              {specials.length ? (
-                specials.map((e) => (
-                  <li key={`${e.date}${e.title}`} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5 lg:grid lg:grid-cols-[9rem_1fr] lg:gap-5">
-                    <p className="time text-sm font-extrabold uppercase tracking-widest text-gold-deep lg:pt-1.5">
-                      {fmtDay(e.date, { weekday: "short", month: "short", day: "numeric" })}
-                      {e.time24 && (
-                        <>
-                          <br className="hidden lg:block" /> {fmtTime(e.time24)}
-                        </>
-                      )}
-                    </p>
-                    <div>
-                    <p className="display-soft mt-1.5 text-2xl lg:mt-0">{e.title}</p>
-                    {e.description && <p className="mt-2 text-ink/75">{e.description}</p>}
-                    {e.location && !/McGee/i.test(e.location) && <p className="mt-2 text-sm text-muted">{e.location.replace(/, USA$/, "")}</p>}
-                    </div>
-                  </li>
-                ))
-              ) : (
-                <li className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5 sm:col-span-3 lg:col-span-1">
-                  <p className="display-soft text-2xl">Nothing special on the calendar just now.</p>
-                  <p className="mt-2 text-ink/75">The regular services are on, every Sunday and Wednesday.</p>
-                </li>
-              )}
-            </ul>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1" data-reveal="1">
+              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5">
+                <p className="eyebrow text-gold-deep">This week</p>
+                <ul className="mt-3 divide-y divide-ink/10">
+                  {week.slice(0, 6).map((e) => (
+                    <li key={`${e.date}${e.time24}${e.title}`} className="flex items-baseline justify-between gap-3 py-1.5">
+                      <span className="min-w-0 truncate font-semibold">{e.title}</span>
+                      <span className="time shrink-0 text-sm text-muted">
+                        {relativeDay(e.date).replace(/,.*$/, "")}
+                        {e.time24 && <> · {fmtTime(e.time24)}</>}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5">
+                <p className="eyebrow text-gold-deep">Coming up</p>
+                <ul className="mt-3 space-y-3">
+                  {specials.length ? (
+                    specials.map((e) => (
+                      <li key={`${e.date}${e.title}`}>
+                        <p className="time text-xs font-extrabold uppercase tracking-widest text-gold-deep">
+                          {fmtDay(e.date, { weekday: "short", month: "short", day: "numeric" })}
+                          {e.time24 && <> · {fmtTime(e.time24)}</>}
+                        </p>
+                        <p className="display-soft text-xl">{e.title}</p>
+                        {e.description && <p className="text-sm text-ink/70">{e.description}</p>}
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-ink/70">Nothing special on the calendar just now. The regular services are on.</li>
+                  )}
+                </ul>
+                <Link href="/events" className="mt-4 inline-block text-sm font-bold text-gold-deep underline underline-offset-4">
+                  The whole calendar
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

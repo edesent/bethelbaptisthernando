@@ -95,7 +95,7 @@ export const services: Service[] = [
 /** What happens on the same day every month, from their flyers and calendar. */
 export const monthly = [
   { title: "Potluck Sunday", when: "First Sunday after the morning service", where: "Fellowship hall", note: "Bring a dish if you can. If you can’t, come anyway." },
-  { title: "Outreach at the Depot", when: "First and third Saturdays, 10:00 AM", where: "300 N Apopka Ave, Inverness", note: "We meet briefly and go into the area with the gospel, inviting people to church." },
+  { title: "Outreach at the Depot", when: "First and third Saturdays, 9:00 AM – noon", where: "Market at the Depot, 300 N Apopka Ave, Inverness", note: "A table at the market. Come anytime between nine and noon." },
   { title: "Prayer Breakfast", when: "Third Saturday, 9:00 AM", where: "Fellowship hall", note: "Breakfast and prayer as a church family, then outreach." },
   { title: "Youth Night at the Inverness Depot", when: "Third Thursday, 5:30 PM", where: "300 N Apopka Ave, Inverness", note: "Meeting the young people of Inverness and giving them the gospel." },
 ];
@@ -136,6 +136,22 @@ export const events: SpecialEvent[] = [
     when: "Sunday, November 1 · 10:30 AM",
     summary: "Corn hole, axe throwing, a chili cook-off, hayrides, tic-tac-toe and snow cones. Bring your favorite side.",
   },
+];
+
+/**
+ * The church's own flyers, for the slider on the home page. Newest first.
+ * One with `endsOn` drops off after that date. Add a flyer by dropping a
+ * JPEG in public/banners/ and listing it here.
+ */
+export const banners: { src: string; alt: string; href?: string; endsOn?: string }[] = [
+  { src: "/banners/harvest-fest.jpg", alt: "Harvest Fest, Sunday November 1 at 10:30 AM: corn hole, axe throwing, chili cook-off, hayrides, tic-tac-toe, snow cones. Bring your favorite side.", href: "/events", endsOn: "2026-11-01" },
+  { src: "/banners/sunday-supper.jpg", alt: "Sunday Supper Schedule: first Sunday potluck, second soup and salad, third breakfast, fourth sandwich Sunday, fifth southern Sunday", href: "/visit" },
+  { src: "/banners/youth-for-truth.jpg", alt: "Youth for Truth, Wednesdays at 6:30 PM: pizza, games and a Bible lesson. Bring a friend and earn a prize.", href: "/ministries#youth" },
+  { src: "/banners/need-a-ride.jpg", alt: "Need a ride to church? The Bethel Baptist Church van, with the church phone number", href: "/visit#ride" },
+  { src: "/banners/outreach-depot.jpg", alt: "Outreach Ministry, every first and third Saturday, 9 AM to 12 PM at the Market at the Depot, 300 N Apopka Ave, Inverness", href: "/ministries#outreach" },
+  { src: "/banners/hope-and-healing.jpg", alt: "Hope and Healing: compassionate, Christ-centered counseling for individuals, couples and families. Marriage counseling, addictions recovery, depression and anxiety support.", href: "/ministries#counseling" },
+  { src: "/banners/potluck-sunday.jpg", alt: "Potluck Sunday, every first Sunday, followed by the afternoon service", href: "/visit" },
+  { src: "/banners/minivan.jpg", alt: "Bethel Baptist Church is in need of a minivan. Please help if you are able.", href: "/give" },
 ];
 
 export const giving = {

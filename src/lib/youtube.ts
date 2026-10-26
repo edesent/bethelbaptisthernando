@@ -84,3 +84,76 @@ export function fmtPublished(iso: string) {
 export function fmtStart(ms: number) {
   return new Date(ms).toLocaleString("en-US", { timeZone: TZ, weekday: "long", hour: "numeric", minute: "2-digit" });
 }
+
+/* ---------- the whole stream archive, for the Watch page ---------- */
+
+export type Stream = { id: string; title: string; when: string; views: string };
+
+/**
+ * Every stream on the channel's Streams tab, newest first, by reading the
+ * page the way a browser does and following its "load more" links. Capped
+ * at `maxPages` loads (about 30 streams each) so one request never fans out
+ * too far; re-read hourly. Falls back to the RSS feed if YouTube says no.
+ */
+export async function allStreams(maxPages = 8): Promise<Stream[]> {
+  const headers = { "User-Agent": UA, "Accept-Language": "en-US,en;q=0.9", Cookie: "CONSENT=YES+1; SOCS=CAI" };
+  try {
+    const res = await fetch(`https://www.youtube.com/channel/${CHANNEL_ID}/streams`, { headers, next: { revalidate: 3600 } });
+    if (!res.ok) throw new Error(String(res.status));
+    const html = await res.text();
+    const key = html.match(/"INNERTUBE_API_KEY":"([^"]+)"/)?.[1];
+    const ver = html.match(/"INNERTUBE_CLIENT_VERSION":"([^"]+)"/)?.[1];
+    const initial = html.match(/var ytInitialData = (\{.*?\});<\/script>/)?.[1];
+    if (!initial) throw new Error("no data");
+    const out: Stream[] = [];
+    let token = collect(JSON.parse(initial), out);
+    let pages = 1;
+    while (token && key && ver && pages < maxPages) {
+      const r = await fetch(`https://www.youtube.com/youtubei/v1/browse?key=${key}&prettyPrint=false`, {
+        method: "POST",
+        headers: { ...headers, "Content-Type": "application/json" },
+        body: JSON.stringify({ context: { client: { clientName: "WEB", clientVersion: ver, hl: "en", gl: "US" } }, continuation: token }),
+        next: { revalidate: 3600 },
+      });
+      if (!r.ok) break;
+      token = collect(await r.json(), out);
+      pages++;
+    }
+    if (!out.length) throw new Error("empty");
+    const seen = new Set<string>();
+    return out.filter((v) => (seen.has(v.id) ? false : (seen.add(v.id), true)));
+  } catch {
+    const recent = await recentVideos(15);
+    return recent.map((v) => ({ id: v.id, title: v.title, when: fmtPublished(v.published), views: "" }));
+  }
+}
+
+/** Walk a YouTube response for stream tiles; return the next "load more" token if there is one. */
+function collect(node: unknown, out: Stream[]): string | null {
+  let token: string | null = null;
+  const walk = (o: unknown) => {
+    if (Array.isArray(o)) {
+      o.forEach(walk);
+      return;
+    }
+    if (!o || typeof o !== "object") return;
+    const rec = o as Record<string, unknown>;
+    if (rec.lockupViewModel) {
+      const lv = rec.lockupViewModel as Record<string, unknown>;
+      const md = ((lv.metadata as Record<string, unknown>)?.lockupMetadataViewModel ?? {}) as Record<string, unknown>;
+      const title = ((md.title as Record<string, unknown>)?.content as string) ?? "Bethel Baptist Church";
+      const parts: string[] = [];
+      const rows = (((md.metadata as Record<string, unknown>)?.contentMetadataViewModel as Record<string, unknown>)?.metadataRows ?? []) as Record<string, unknown>[];
+      for (const row of rows) for (const p of (row.metadataParts ?? []) as Record<string, unknown>[]) parts.push(((p.text as Record<string, unknown>)?.content as string) ?? "");
+      const id = lv.contentId as string;
+      if (id) out.push({ id, title, when: parts.find((p) => /^(Streamed|Scheduled|Started)/.test(p)) ?? parts[1] ?? "", views: parts.find((p) => /view/.test(p)) ?? "" });
+    }
+    if (rec.continuationItemRenderer && !token) {
+      const t = (((rec.continuationItemRenderer as Record<string, unknown>).continuationEndpoint as Record<string, unknown>)?.continuationCommand as Record<string, unknown>)?.token;
+      if (typeof t === "string") token = t;
+    }
+    Object.values(rec).forEach(walk);
+  };
+  walk(node);
+  return token;
+}
