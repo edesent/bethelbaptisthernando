@@ -358,27 +358,36 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* CLOSE — the building */}
+      {/* CLOSE — this Sunday, with the map, fading into the footer */}
       <section className="relative isolate overflow-hidden bg-brown-deep text-white">
         <Image src={photos.steepleSunset.src} alt={photos.steepleSunset.alt} fill sizes="100vw" className="object-cover object-[center_30%]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(29,24,21,0.9),rgba(29,24,21,0.35))]" aria-hidden />
-        <div className="wrap relative py-24 text-center md:py-36">
-          <p className="script text-shadow text-4xl text-gold-light sm:text-5xl" data-reveal>
-            This Sunday
-          </p>
-          <h2 className="display text-shadow mx-auto mt-2 max-w-3xl text-4xl sm:text-6xl" data-reveal="1">
-            {church.streetNumber} {church.street}, {church.city}. Sunday School at ten, service at eleven.
-          </h2>
-          <p className="text-shadow mx-auto mt-5 max-w-xl text-lg text-white/85" data-reveal="2">
-            Just off Highway 41, north of Inverness. Look for the white steeple. Questions? <Phone className="font-semibold underline underline-offset-4" fallback="Call the church" />.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3" data-reveal="3">
-            <Link href="/visit" className="btn btn-gold">
-              Plan a visit
-            </Link>
-            <a href={church.mapsUrl} className="btn btn-ghost" rel="noopener">
-              Directions
-            </a>
+        <div className="absolute inset-0 bg-[linear-gradient(to_top,#1d1815_0%,rgba(29,24,21,0.92)_28%,rgba(29,24,21,0.6)_60%,rgba(29,24,21,0.3)_100%)]" aria-hidden />
+        <div className="wrap relative grid gap-10 pb-24 pt-20 md:grid-cols-[1fr_1fr] md:items-center md:pb-32 md:pt-28">
+          <div data-reveal>
+            <p className="script text-shadow text-4xl text-gold-light sm:text-5xl">This Sunday</p>
+            <h2 className="display text-shadow mt-2 text-4xl sm:text-5xl md:text-6xl">
+              {church.streetNumber} {church.street}, {church.city}. Sunday School at ten, service at eleven.
+            </h2>
+            <p className="text-shadow mt-5 max-w-xl text-lg text-white/85">
+              Just off Highway 41, north of Inverness. Look for the white steeple. Questions? <Phone className="font-semibold underline underline-offset-4" fallback="Call the church" />.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/visit" className="btn btn-gold">
+                Plan a visit
+              </Link>
+              <a href={church.mapsUrl} className="btn btn-ghost" rel="noopener">
+                Directions
+              </a>
+            </div>
+          </div>
+          <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/20" data-reveal="1">
+            <iframe
+              title="Map to Bethel Baptist Church"
+              src={church.mapsEmbed}
+              className="h-[20rem] w-full sm:h-[24rem] md:h-[26rem]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>

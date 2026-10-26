@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { church, nav, pastor, services } from "@/lib/site";
+import { church, nav, services } from "@/lib/site";
 import { fmtTime } from "@/lib/calendar";
 import Logo from "./Logo";
 import Phone from "./Phone";
@@ -18,12 +18,7 @@ export default function Footer() {
               <p className="eyebrow mt-1 text-[0.62rem] text-gold-light">An independent Baptist church · Hernando, Florida</p>
             </div>
           </div>
-          <p className="mt-6 max-w-md text-white/80">
-            “I was glad when they said unto me, Let us go into the house of the Lord.” <span className="text-gold-light">Psalm 122:1</span>
-          </p>
-          <p className="mt-3 max-w-md text-white/70">
-            {pastor.styled}, pastor since {pastor.since}.
-          </p>
+          <p className="script mt-5 text-3xl text-gold-light">A good Church in Hernando, Florida</p>
         </div>
         <div>
           <p className="eyebrow text-gold-light">Find us</p>
