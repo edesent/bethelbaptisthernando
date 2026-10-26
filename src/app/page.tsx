@@ -181,11 +181,11 @@ export default async function Home() {
               list beside them comes straight from the church’s calendar.
             </p>
           </div>
-          <div className="mt-10 grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-10">
-            <div data-reveal>
-              <Banners items={liveBanners} />
-            </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1" data-reveal="1">
+          <div className="mt-10" data-reveal>
+            <Banners items={liveBanners} />
+          </div>
+          <div className="mt-8 grid gap-6 md:grid-cols-2" data-reveal="1">
+            <div className="contents">
               <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5">
                 <p className="eyebrow text-gold-deep">This week</p>
                 <ul className="mt-3 divide-y divide-ink/10">

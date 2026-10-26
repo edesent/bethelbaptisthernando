@@ -48,7 +48,7 @@ export default function Banners({ items, interval = 6000 }: { items: Banner[]; i
               src={b.src}
               alt={b.alt}
               fill
-              sizes="(min-width: 1024px) 60vw, 100vw"
+              sizes="(min-width: 1280px) 1216px, 100vw"
               priority={k === 0}
               className="object-cover"
             />
