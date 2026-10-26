@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import NextUp from "@/components/NextUp";
+import OpenChat from "@/components/OpenChat";
 import Phone from "@/components/Phone";
 import { comingUp, fmtDay, fmtTime, relativeDay, thisWeek } from "@/lib/calendar";
 import { photos } from "@/lib/photos";
 import { church, counseling, giving, lunchRotation, pastor } from "@/lib/site";
 
 export default async function Home() {
-  const [week, specials] = await Promise.all([thisWeek(7), comingUp(120, 4)]);
+  const [week, specials] = await Promise.all([thisWeek(7), comingUp(120, 3)]);
   const hero = photos.churchSunset;
 
   return (
@@ -72,9 +73,12 @@ export default async function Home() {
                   “Hi, I’m Pastor Brandon. If you walk through our door Sunday, I will meet you there, and you’ll leave knowing a few
                   names. Write me anytime.”
                 </p>
-                <Link href="/about#pastor" className="mt-2 inline-block text-sm font-bold text-gold-light underline underline-offset-4">
-                  Meet the Bankerts
-                </Link>
+                <span className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm font-bold text-gold-light">
+                  <OpenChat className="underline underline-offset-4">Write to me</OpenChat>
+                  <Link href="/about#pastor" className="underline underline-offset-4">
+                    Meet the Bankerts
+                  </Link>
+                </span>
               </div>
             </div>
           </div>
@@ -192,9 +196,7 @@ export default async function Home() {
               <Link href="/about#pastor" className="btn btn-ink">
                 More about the Bankerts
               </Link>
-              <Link href="/contact" className="btn btn-ghost btn-ghost-ink">
-                Write to the pastor
-              </Link>
+              <OpenChat className="btn btn-ghost btn-ghost-ink">Write to the pastor</OpenChat>
             </div>
           </div>
         </div>
@@ -246,28 +248,34 @@ export default async function Home() {
               <p className="eyebrow text-gold-deep">Coming up</p>
               <h2 className="display mt-3 text-4xl sm:text-5xl">What’s going on at Bethel.</h2>
               <p className="mt-5 text-lg text-ink/80">
-                Harvest Fests, youth rallies, campfire services in March, Summer Sundays in June. This list comes from the church’s own
-                calendar, so it is never out of date.
+                The next three things on the church’s Google Calendar. Potlucks, outreach Saturdays, conferences, festivals. It reads the
+                calendar itself, so it is never out of date.
               </p>
               <Link href="/events" className="btn btn-ink mt-7">
                 Full calendar
               </Link>
             </div>
-            <ul className="grid gap-3 sm:grid-cols-2" data-reveal="1">
+            <ul className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1" data-reveal="1">
               {specials.length ? (
                 specials.map((e) => (
-                  <li key={`${e.date}${e.title}`} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5">
-                    <p className="time text-sm font-extrabold uppercase tracking-widest text-gold-deep">
+                  <li key={`${e.date}${e.title}`} className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5 lg:grid lg:grid-cols-[9rem_1fr] lg:gap-5">
+                    <p className="time text-sm font-extrabold uppercase tracking-widest text-gold-deep lg:pt-1.5">
                       {fmtDay(e.date, { weekday: "short", month: "short", day: "numeric" })}
-                      {e.time24 && <> · {fmtTime(e.time24)}</>}
+                      {e.time24 && (
+                        <>
+                          <br className="hidden lg:block" /> {fmtTime(e.time24)}
+                        </>
+                      )}
                     </p>
-                    <p className="display-soft mt-1.5 text-2xl">{e.title}</p>
+                    <div>
+                    <p className="display-soft mt-1.5 text-2xl lg:mt-0">{e.title}</p>
                     {e.description && <p className="mt-2 text-ink/75">{e.description}</p>}
                     {e.location && !/McGee/i.test(e.location) && <p className="mt-2 text-sm text-muted">{e.location.replace(/, USA$/, "")}</p>}
+                    </div>
                   </li>
                 ))
               ) : (
-                <li className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5 sm:col-span-2">
+                <li className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5 sm:col-span-3 lg:col-span-1">
                   <p className="display-soft text-2xl">Nothing special on the calendar just now.</p>
                   <p className="mt-2 text-ink/75">The regular services are on, every Sunday and Wednesday.</p>
                 </li>

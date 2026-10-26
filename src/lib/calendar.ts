@@ -41,6 +41,13 @@ const standingTitles = [
   "Business Meeting",
 ].map((t) => t.toLowerCase());
 
+/** The weekly services only (Sunday and Wednesday). Monthly things like the potluck count as "going on". */
+const weeklyTitles = [...services.map((s) => s.name), "Evening Service"].map((t) => t.toLowerCase());
+export const isWeekly = (title: string) => {
+  const t = title.trim().toLowerCase();
+  return weeklyTitles.some((s) => t === s || t.startsWith(s));
+};
+
 export const isStanding = (title: string) => {
   const t = title.trim().toLowerCase();
   return standingTitles.some((s) => t === s || t.startsWith(s));
@@ -355,11 +362,18 @@ export async function thisWeek(days = 7): Promise<CalEntry[]> {
   });
 }
 
-/** Special events (not the weekly rhythm) in the next `days` days. */
-export async function comingUp(days = 120, limit = 6): Promise<CalEntry[]> {
+/** The next things on the church calendar that aren't the weekly services: potlucks, outreach, conferences, festivals. */
+export async function comingUp(days = 120, limit = 3): Promise<CalEntry[]> {
   const now = nowInChurch();
   const list = await calendarBetween(now.date, addDays(now.date, days));
-  return list.filter((e) => !e.standing).slice(0, limit);
+  return list
+    .filter((e) => !isWeekly(e.title))
+    .filter((e) => {
+      if (e.date !== now.date || !e.time24) return true;
+      const [h, m] = e.time24.split(":").map(Number);
+      return h * 60 + m >= now.minutes - 90;
+    })
+    .slice(0, limit);
 }
 
 /**

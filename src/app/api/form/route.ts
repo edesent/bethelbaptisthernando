@@ -1,5 +1,6 @@
 import { createHmac, randomBytes, timingSafeEqual } from "crypto";
 import { NextResponse } from "next/server";
+import { CHAT } from "@/config/chat";
 import { church } from "@/lib/site";
 
 /**
@@ -7,9 +8,11 @@ import { church } from "@/lib/site";
  * ride requests and the contact page. Add a kind by writing another
  * *Message() function below and a branch in POST.
  *
- * Messages go to FORM_WEBHOOK_URL — a Slack (or Teams) incoming webhook — so
- * they reach the pastor's phone in seconds. Until that is set the endpoint
- * answers 503 and the form honestly tells people to call the church.
+ * Messages go into the church's Slack channel through Website Chat (the same
+ * connection as the chat bubble; key in src/config/chat.ts), so they reach the
+ * pastor's phone in seconds. Until Slack is connected on that side the backend
+ * answers 503 and the form honestly tells people to call the church. Setting
+ * FORM_WEBHOOK_URL (a Slack/Teams incoming webhook) overrides that route.
  *
  * Spam defences: a signed load-time token (GET) that must be at least 3
  * seconds old, a honeypot field, a per-IP rate limit, an allowlist of fields,
@@ -20,7 +23,7 @@ import { church } from "@/lib/site";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const SECRET = process.env.FORM_SECRET || process.env.FORM_WEBHOOK_URL || "";
+const SECRET = process.env.FORM_SECRET || process.env.FORM_WEBHOOK_URL || CHAT.apiKey;
 const MIN_FILL_MS = 3000;
 const MAX_AGE_MS = 1000 * 60 * 60 * 6;
 
@@ -29,7 +32,6 @@ function sign(ts: string) {
 }
 
 function tokenOk(token: unknown) {
-  if (!SECRET) return true; // nothing to sign with yet; the webhook is unset too
   if (typeof token !== "string") return false;
   const [ts, sig] = token.split(".");
   if (!ts || !sig) return false;
@@ -68,7 +70,7 @@ const okEmail = (s: string) => !s || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s);
 const fake = () => NextResponse.json({ ok: true });
 
 type Body = Record<string, unknown>;
-type Built = { text: string } | { error: string } | { spam: true };
+type Built = { text: string; subject: string; name: string; contact: string } | { error: string } | { spam: true };
 
 function chatMessage(b: Body): Built {
   const message = clean(b.message, 3000);
@@ -79,6 +81,9 @@ function chatMessage(b: Body): Built {
   if (!contact) return { error: "Leave a phone number or email so the pastor can answer you." };
   if ([message, name, topic].some(hasLink) || badContact(contact)) return { spam: true };
   return {
+    subject: `💬 ${topic || "Message"} — from the website`,
+    name,
+    contact,
     text: [
       `*💬 Message from the website — ${church.short}*`,
       topic && `*About:* ${topic}`,
@@ -101,6 +106,9 @@ function rideMessage(b: Body): Built {
   if (!address) return { error: "Tell us where to pick you up (a street or a landmark is fine)." };
   if ([name, address, notes].some(hasLink) || badContact(contact)) return { spam: true };
   return {
+    subject: "🚐 Someone needs a ride to church",
+    name,
+    contact,
     text: [
       `*🚐 Ride request — ${church.short} website*`,
       `*Name:* ${name}`,
@@ -121,6 +129,9 @@ function prayerMessage(b: Body): Built {
   if (!request) return { error: "Please tell us what we can pray about." };
   if ([request, name].some(hasLink) || badContact(contact)) return { spam: true };
   return {
+    subject: confidential ? "🙏 Prayer request (pastor only)" : "🙏 Prayer request",
+    name: name || "Not given",
+    contact: contact || "Not given",
     text: [
       `*🙏 Prayer request — ${church.short} website*`,
       confidential && "_Pastor only — please keep confidential_",
@@ -145,6 +156,9 @@ function contactMessage(b: Body): Built {
   if (!okEmail(email)) return { error: "That email address does not look right." };
   if ([name, message, topic].some(hasLink)) return { spam: true };
   return {
+    subject: `✉️ ${topic || "New message"} — contact page`,
+    name,
+    contact: [email, phone].filter(Boolean).join(" · "),
     text: [
       `*✉️ New message — ${church.short} website*`,
       `*Name:* ${name}`,
@@ -190,22 +204,34 @@ export async function POST(request: Request) {
   if ("error" in built) return NextResponse.json({ error: built.error }, { status: 400 });
 
   const webhook = process.env.FORM_WEBHOOK_URL;
-  if (!webhook) {
-    return NextResponse.json(
-      { error: "Our online messages aren’t connected yet. Please call or text the church — we’d love to hear from you." },
-      { status: 503 },
-    );
-  }
+  const notConnected = NextResponse.json(
+    { error: "Our online messages aren’t connected yet. Please call or text the church — we’d love to hear from you." },
+    { status: 503 },
+  );
+  const failed = NextResponse.json({ error: "We couldn’t send that just now. Please call the church instead." }, { status: 502 });
 
   try {
-    const res = await fetch(webhook, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: built.text }),
-    });
+    const res = webhook
+      ? await fetch(webhook, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: built.text }),
+        })
+      : await fetch(`${CHAT.origin}/api/chat/contact-form`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            apiKey: CHAT.apiKey,
+            subject: built.subject,
+            name: built.name,
+            contact: built.contact,
+            message: built.text,
+          }),
+        });
+    if (res.status === 503) return notConnected;
     if (!res.ok) throw new Error(String(res.status));
   } catch {
-    return NextResponse.json({ error: "We couldn’t send that just now. Please call the church instead." }, { status: 502 });
+    return failed;
   }
   return NextResponse.json({ ok: true });
 }
