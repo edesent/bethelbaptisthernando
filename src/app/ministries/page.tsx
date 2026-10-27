@@ -15,10 +15,10 @@ const big: { id: string; h: string; when: string; p: string; photo: PhotoKey; ph
   {
     id: "outreach",
     h: "Outreach at the Depot",
-    when: "First and third Saturdays · 10:00 AM · 300 N Apopka Ave, Inverness",
+    when: "First and third Saturdays · 9:00 AM – noon · Market at the Depot, 300 N Apopka Ave, Inverness",
     p: "The old train depot in Inverness hosts a market on Saturday mornings. Bethel goes out to meet whoever stops by, sharing the gospel and an invitation to church. On the third Saturday the morning starts at nine with the prayer breakfast at the church first.",
     photo: "doorToDoor1",
-    photo2: "depotTable",
+    photo2: "doorToDoor2",
   },
   {
     id: "youth",

@@ -257,7 +257,7 @@ export default async function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
-              { p: photos.doorToDoor2, h: "Saturdays at the Depot", t: "First and third Saturdays at ten, outreach at the Inverness market, meeting the town and handing out the gospel.", href: "/ministries#outreach" },
+              { p: photos.doorToDoor2, h: "Saturdays at the Depot", t: "First and third Saturdays, nine to noon, outreach at the Inverness market, meeting the town and handing out the gospel.", href: "/ministries#outreach" },
               { p: photos.youthRally, h: "Youth for Truth", t: "Wednesdays at 6:30: pizza, games and a Bible lesson. Youth rallies with preaching, prizes and team competition a few times a year.", href: "/ministries#youth" },
               { p: photos.vanCrew, h: "Need a ride?", t: "The church van runs on Sunday mornings. Tell us where you are and it will be in your driveway.", href: "/visit#ride" },
             ].map((m, i) => (
