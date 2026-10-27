@@ -30,7 +30,7 @@ export default function Header() {
       >
         <div className="wrap flex h-[4.75rem] items-center justify-between gap-4 md:h-[5.5rem]">
           <Link href="/" className="flex items-center" aria-label={`${church.name} home`}>
-            <Brand className="h-12 md:h-[4.1rem]" />
+            <Brand />
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
@@ -75,7 +75,7 @@ export default function Header() {
       >
         <div className="wrap flex h-[4.75rem] items-center justify-between">
           <span className="flex items-center">
-            <Brand className="h-12" />
+            <Brand />
           </span>
           <button
             type="button"

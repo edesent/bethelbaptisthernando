@@ -7,14 +7,26 @@ export default function Logo({
   className = "",
   tone = "gold",
   title = "Bethel Baptist Church",
+  decorative = false,
 }: {
   className?: string;
   tone?: "gold" | "white" | "ink";
   title?: string;
+  decorative?: boolean;
 }) {
   const color = tone === "gold" ? "var(--gold)" : tone === "white" ? "#fff" : "var(--brown)";
   return (
-    <svg viewBox="0 0 100 118" className={className} role="img" aria-label={title} fill="none" stroke={color} strokeLinecap="square" strokeLinejoin="miter">
+    <svg
+      viewBox="0 0 100 118"
+      className={className}
+      role={decorative ? undefined : "img"}
+      aria-hidden={decorative || undefined}
+      aria-label={decorative ? undefined : title}
+      fill="none"
+      stroke={color}
+      strokeLinecap="square"
+      strokeLinejoin="miter"
+    >
       {/* roof: a gap at the left eave, as in the original */}
       <path d="M 6 46 L 50 10 L 94 46" strokeWidth="9" />
       {/* walls, open at the bottom centre */}
