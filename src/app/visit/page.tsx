@@ -32,7 +32,7 @@ const faq = [
   },
   {
     q: "Will I be singled out?",
-    a: "No. You will be greeted at the door, and the pastor will likely come find you to say hello. You won’t be asked to stand, speak or fill anything out.",
+    a: "No. You will be greeted at the door, and the pastor will likely come find you to say hello. We do like to recognize guests and ask you to fill out a guest card, but you won’t be asked to stand or speak in front of anyone.",
   },
   {
     q: "Is there really lunch every Sunday?",

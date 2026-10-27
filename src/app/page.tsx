@@ -184,7 +184,7 @@ export default async function Home() {
               </h2>
             </div>
             <p className="text-lg text-ink/80" data-reveal="1">
-              Harvest Fest, Sunday suppers, youth night, the van, the table at the Depot. The flyers are the church’s own, and the lists below come straight from the church’s calendar.
+              Harvest Fest, Sunday suppers, youth night, the van, outreach at the Depot. The flyers are the church’s own, and the lists below come straight from the church’s calendar.
             </p>
           </div>
           <div className="mt-10" data-reveal>
@@ -242,7 +242,7 @@ export default async function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
-              { p: photos.depotTable, h: "Saturdays at the Depot", t: "First and third Saturdays at ten, a table at the Inverness market, meeting the town and handing out the gospel.", href: "/ministries#outreach" },
+              { p: photos.depot, h: "Saturdays at the Depot", t: "First and third Saturdays at ten, outreach at the Inverness market, meeting the town and handing out the gospel.", href: "/ministries#outreach" },
               { p: photos.youthRally, h: "Youth for Truth", t: "Wednesdays at 6:30: pizza, games and a Bible lesson. Youth rallies with preaching, prizes and team competition a few times a year.", href: "/ministries#youth" },
               { p: photos.van, h: "Need a ride?", t: "The church van runs on Sunday mornings. Tell us where you are and it will be in your driveway.", href: "/visit#ride" },
             ].map((m, i) => (

@@ -16,9 +16,8 @@ const big: { id: string; h: string; when: string; p: string; photo: PhotoKey; ph
     id: "outreach",
     h: "Outreach at the Depot",
     when: "First and third Saturdays · 10:00 AM · 300 N Apopka Ave, Inverness",
-    p: "The old train depot in Inverness hosts a market on Saturday mornings. Bethel sets up a table, talks to whoever stops, and goes out into the area with the gospel and an invitation to church. On the third Saturday the morning starts at nine with the prayer breakfast at the church first.",
-    photo: "depotTable",
-    photo2: "depot",
+    p: "The old train depot in Inverness hosts a market on Saturday mornings. Bethel goes out to meet whoever stops by, sharing the gospel and an invitation to church. On the third Saturday the morning starts at nine with the prayer breakfast at the church first.",
+    photo: "depot",
   },
   {
     id: "youth",
@@ -65,7 +64,7 @@ export default function Ministries() {
             What we do <span className="script text-gold-light">the rest of the week.</span>
           </>
         }
-        lede="A family church that keeps a van, a youth night, a counseling ministry and a Saturday table at the market. Here is all of it."
+        lede="A family church that keeps a van, a youth night, a counseling ministry and Saturday outreach at the market. Here is all of it."
         photo="lawnGames"
         position="center 45%"
       />

@@ -64,7 +64,7 @@ export const pastor = {
   /** In his own words, from the church's pastor page. */
   bio: [
     "Pastor Bankert graduated from International Bible College in Stonybrook, NY in 2003.",
-    "My wife and I were married in 2011 and we are blessed with our two wonderful children. I was an assistant pastor and Christian school teacher for ten years and have served in various church ministries. I have also served in the bus ministry where we have reached many children for the cause of Christ. God has given me a heart for the lost and a love for God’s people.",
+    "My wife and I were married in 2011 and we are blessed with our three wonderful children. I was an assistant pastor and Christian school teacher for ten years and have served in various church ministries. I have also served in the bus ministry where we have reached many children for the cause of Christ. God has given me a heart for the lost and a love for God’s people.",
     "We have a great commission to go into all the world and preach the gospel to every creature from the city of Hernando to the uttermost parts of the earth through missions. We invite you to be a part of the Re-Growth of Bethel Baptist Church. God bless you.",
   ],
 };
@@ -95,7 +95,7 @@ export const services: Service[] = [
 /** What happens on the same day every month, from their flyers and calendar. */
 export const monthly = [
   { title: "Potluck Sunday", when: "First Sunday after the morning service", where: "Fellowship hall", note: "Bring a dish if you can. If you can’t, come anyway." },
-  { title: "Outreach at the Depot", when: "First and third Saturdays, 9:00 AM – noon", where: "Market at the Depot, 300 N Apopka Ave, Inverness", note: "A table at the market. Come anytime between nine and noon." },
+  { title: "Outreach at the Depot", when: "First and third Saturdays, 9:00 AM – noon", where: "Market at the Depot, 300 N Apopka Ave, Inverness", note: "Outreach at the market. Come anytime between nine and noon." },
   { title: "Prayer Breakfast", when: "Third Saturday, 9:00 AM", where: "Fellowship hall", note: "Breakfast and prayer as a church family, then outreach." },
   { title: "Youth Night at the Inverness Depot", when: "Third Thursday, 5:30 PM", where: "300 N Apopka Ave, Inverness", note: "Meeting the young people of Inverness and giving them the gospel." },
 ];
