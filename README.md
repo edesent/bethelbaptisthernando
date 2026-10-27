@@ -37,6 +37,8 @@ Preview: https://bethelhernando.elijahdesent.com (hidden from search engines; se
 
 ## How it works
 
+- **The hero is the church's own welcome picture** (`public/hero.jpg`: the Bankerts at the pulpit with "Welcome to our church" and Psalm 122:1 in the artwork; `public/hero-phone.jpg` is a crop of the family for phones, where the welcome is set in type).
+
 - **The hero uses the real church-at-sunset photo.** The earlier preaching loop is retained in `public/hero.mp4` and `HeroVideo.tsx` only as a source for a future replacement if Pastor Brandon supplies a better clip; it is not rendered on the site.
 
 - **The church's Google Calendar drives the site.** `src/lib/calendar.ts` reads the public iCal feed of `bethelbaptist2289@gmail.com` (the calendar already embedded on the old site), expands weekly and monthly repeats, and feeds "This week at Bethel" on the home page and everything on `/events`. The pastor keeps editing the calendar he already keeps; the site follows within an hour. If the feed is unreachable the standing services and the `events` list in `site.ts` still show. Special events are anything whose title isn't in the standing list at the top of `calendar.ts`.
@@ -62,7 +64,7 @@ Preview: https://bethelhernando.elijahdesent.com (hidden from search engines; se
 - **Hope & Healing** (marriage, addictions recovery, depression & anxiety) from their flyer. "No charge" is an assumption.
 - **Harvest Fest, Sunday November 1, 2026, 10:30 AM** from their October 2026 flyer (corn hole, axe throwing, chili cook-off, hayrides, tic-tac-toe, snow cones). It is in `events` in `site.ts`, not on their Google Calendar.
 - **Google rating 5.0** as of October 2026; not shown on the site.
-- **Photos** are all the church's own: the pastor's uploads to the old site's media library (the rebuild, the sanctuary, the van, the family), the church Facebook page (lunches, youth rally, VBS, the Depot, the old blue building) and one still from the Sunday livestream. People other than the Bankerts are not named.
+- **Photos** are all the church's own (October 27, 2026: Pastor Brandon sent about fifty more by text; the best are in `public/photos/`, the rest sit on Eli's Desktop): the pastor's uploads to the old site's media library (the rebuild, the sanctuary, the van, the family), the church Facebook page (lunches, youth rally, VBS, the Depot, the old blue building) and one still from the Sunday livestream. People other than the Bankerts are not named.
 - The email address on their old site is deliberately not on this one; the forms and phone are instead.
 - Who painted the mural is not known; the site says "a member."
 

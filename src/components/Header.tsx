@@ -14,7 +14,6 @@ import Brand from "./Brand";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const path = usePathname();
-  const onHome = path === "/";
 
   useEffect(() => setOpen(false), [path]);
   useEffect(() => {
@@ -27,11 +26,11 @@ export default function Header() {
   return (
     <>
       <header
-        className={onHome ? "absolute inset-x-0 top-0 z-40 text-white" : "sticky top-0 z-40 bg-brown text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.6)]"}
+        className="sticky top-0 z-40 bg-brown text-white shadow-[0_10px_30px_-20px_rgba(0,0,0,0.6)]"
       >
         <div className="wrap flex h-[4.75rem] items-center justify-between gap-4 md:h-[5.5rem]">
           <Link href="/" className="flex items-center" aria-label={`${church.name} home`}>
-            <Brand className={`h-12 md:h-[4.1rem] ${onHome ? "drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]" : ""}`} />
+            <Brand className="h-12 md:h-[4.1rem]" />
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
@@ -40,7 +39,7 @@ export default function Header() {
                 key={n.href}
                 href={n.href}
                 className={`rounded-full px-3.5 py-2 text-[0.95rem] font-semibold transition ${
-                  path === n.href || (n.href !== "/" && path.startsWith(n.href)) ? "bg-white/15" : onHome ? "text-shadow hover:bg-white/12" : "hover:bg-white/10"
+                  path === n.href || (n.href !== "/" && path.startsWith(n.href)) ? "bg-white/15" : "hover:bg-white/10"
                 }`}
               >
                 {n.label}
