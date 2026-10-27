@@ -80,7 +80,7 @@ export default async function Home() {
               message myself.”
             </blockquote>
             <p className="mt-4 text-muted">
-              {pastor.styled} · pastor since {pastor.since} · husband and dad of two
+              {pastor.styled} · pastor since {pastor.since} · husband and dad of three
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <OpenChat className="btn btn-gold">Write to Pastor Brandon</OpenChat>
