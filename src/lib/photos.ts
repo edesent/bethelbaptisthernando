@@ -39,7 +39,7 @@ export const photos = {
   lawnGames: { src: "/photos/outdoor-youth-games.jpg", w: 1800, h: 1350, alt: "Children and adults playing a group game outside under the trees" },
   childrenPraying: { src: "/photos/children-praying.jpg", w: 1350, h: 1800, alt: "Children kneeling together in prayer at the front of the sanctuary" },
   airHockey: { src: "/photos/air-hockey.jpg", w: 1800, h: 1350, alt: "Kids around an air hockey table in the fellowship hall" },
-  depotTable: { src: "/photos/depot-table.jpg", w: 1635, h: 1077, alt: "Two members at the Bethel Baptist table at the Depot market in Inverness" },
+  depotTable: { src: "/photos/depot-table.jpg", w: 1635, h: 1077, alt: "Two members from Bethel Baptist doing outreach at the Depot market in Inverness" },
   depot: { src: "/photos/depot.jpg", w: 1170, h: 879, alt: "The old train depot in Inverness on market day" },
   chalkArtist: { src: "/photos/chalk-artist.jpg", w: 1800, h: 1350, alt: "A chalk artist’s finished drawing, Jesus is Knocking, on an easel in the sanctuary" },
   bathroomReno: { src: "/photos/bathroom-reno.jpg", w: 1800, h: 1350, alt: "A freshly rebuilt restroom with new flooring and fixtures" },
