@@ -47,7 +47,7 @@ export default function About() {
                 <Image src={photos.ordination.src} alt={photos.ordination.alt} width={photos.ordination.w} height={photos.ordination.h} sizes="20vw" className="aspect-square w-full object-cover" />
               </figure>
               <figure className="overflow-hidden rounded-2xl shadow-lg">
-                <Image src={photos.pastorWifeSinging.src} alt={photos.pastorWifeSinging.alt} width={photos.pastorWifeSinging.w} height={photos.pastorWifeSinging.h} sizes="20vw" className="aspect-square w-full object-cover" />
+                <Image src={photos.pastorPulpitChild.src} alt={photos.pastorPulpitChild.alt} width={photos.pastorPulpitChild.w} height={photos.pastorPulpitChild.h} sizes="20vw" className="aspect-square w-full object-cover" />
               </figure>
             </div>
           </div>

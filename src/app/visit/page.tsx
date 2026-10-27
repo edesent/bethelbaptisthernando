@@ -107,7 +107,7 @@ export default function Visit() {
             </figure>
             <div className="grid grid-cols-2 gap-3">
               <figure className="overflow-hidden rounded-2xl shadow-lg">
-                <Image src={photos.vbsKids.src} alt={photos.vbsKids.alt} width={photos.vbsKids.w} height={photos.vbsKids.h} sizes="20vw" className="aspect-square w-full object-cover" />
+                <Image src={photos.sundaySchoolKids.src} alt={photos.sundaySchoolKids.alt} width={photos.sundaySchoolKids.w} height={photos.sundaySchoolKids.h} sizes="20vw" className="aspect-square w-full object-cover" />
               </figure>
               <figure className="overflow-hidden rounded-2xl shadow-lg">
                 <Image src={photos.childrenPraying.src} alt={photos.childrenPraying.alt} width={photos.childrenPraying.w} height={photos.childrenPraying.h} sizes="20vw" className="aspect-square w-full object-cover" />
@@ -122,7 +122,7 @@ export default function Visit() {
         <div className="wrap grid gap-12 py-16 md:grid-cols-[0.9fr_1.1fr] md:items-center md:py-24">
           <div data-reveal>
             <figure className="overflow-hidden rounded-2xl shadow-xl">
-              <Image src={photos.van.src} alt={photos.van.alt} width={photos.van.w} height={photos.van.h} sizes="(min-width: 768px) 40vw, 100vw" className="w-full" />
+              <Image src={photos.boysInVan.src} alt={photos.boysInVan.alt} width={photos.boysInVan.w} height={photos.boysInVan.h} sizes="(min-width: 768px) 40vw, 100vw" className="w-full" />
             </figure>
             <p className="eyebrow mt-8 text-gold-deep">Need a ride to church?</p>
             <h2 className="display mt-3 text-4xl sm:text-5xl">The van will come get you.</h2>

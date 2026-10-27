@@ -17,7 +17,7 @@ const pairs: { h: string; p: string; before: PhotoKey; after: PhotoKey }[] = [
   { h: "The sign", p: "The rusted post at the road came down. A new sign went up with the church’s name and an arrow, so you can find us.", before: "signBefore", after: "signAfter" },
 ];
 
-const more: PhotoKey[] = ["roof", "stepsAfter", "bathroomReno", "muralPainting", "yardWork", "kidsBuckets", "sanctuary", "churchFront"];
+const more: PhotoKey[] = ["roof", "stepsAfter", "bathroomReno", "muralPainting", "renovationWall", "kidsBuckets", "sanctuary", "churchFront"];
 
 export default function Rebuild() {
   return (
@@ -30,7 +30,7 @@ export default function Rebuild() {
           </>
         }
         lede="No contractor. A family church, on Saturdays and weeknights, for about a year. Grand reopening March 1, 2026, with lunch."
-        photo="yardWork"
+        photo="renovationWall"
         position="center 42%"
       />
       <section className="bg-paper">

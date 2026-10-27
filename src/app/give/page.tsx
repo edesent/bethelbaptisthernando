@@ -21,7 +21,7 @@ export default function Give() {
           </>
         }
         lede="A small church pays its own way. Here is what your giving does, and the three ways to do it."
-        photo="tablesSet"
+        photo="lunchTableClose"
         position="center 55%"
       />
       <section className="bg-paper">
@@ -71,7 +71,7 @@ export default function Give() {
               <p>Nobody at Bethel is paid from the offering. It all goes to the work.</p>
             </div>
             <figure className="mt-8 overflow-hidden rounded-2xl shadow-lg">
-              <Image src={photos.yardWork.src} alt={photos.yardWork.alt} width={photos.yardWork.w} height={photos.yardWork.h} sizes="(min-width: 768px) 45vw, 100vw" className="aspect-[4/3] w-full object-cover object-[center_30%]" />
+              <Image src={photos.renovationWall.src} alt={photos.renovationWall.alt} width={photos.renovationWall.w} height={photos.renovationWall.h} sizes="(min-width: 768px) 45vw, 100vw" className="aspect-[4/3] w-full object-cover object-[center_30%]" />
             </figure>
             <p className="mt-6 text-muted">
               Questions about giving, or about the building fund?{" "}

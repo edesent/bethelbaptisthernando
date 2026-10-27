@@ -21,41 +21,56 @@ export default async function Home() {
 
   return (
     <>
-      {/* HERO — the church at sunset, with the three things a visitor needs in five seconds */}
-      <section className="relative isolate overflow-hidden bg-brown-deep text-white">
-        <div className="relative min-h-[100svh]">
-          <Image
-            src={photos.churchSunset.src}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-            aria-hidden
-          />
-          <div className="hero-video-wash absolute inset-0" aria-hidden />
-          <div className="wrap relative flex min-h-[100svh] flex-col items-center justify-end pb-11 pt-32 text-center md:pb-14">
-            <p className="script text-shadow hidden text-[2rem] text-gold-light sm:block sm:text-[2.6rem]" data-reveal>
-              Welcome home
-            </p>
-            <h1 className="display text-shadow mt-0.5 max-w-[56rem] text-[2.6rem] leading-[0.94] sm:text-6xl md:text-[4.4rem]" data-reveal="1">
-              A family church in Hernando with a seat saved for you.
-            </h1>
-            <p className="text-shadow mt-4 hidden max-w-xl text-base text-white/90 sm:block sm:text-lg" data-reveal="2">
-              Old-fashioned hymns, the King James Bible, and lunch together every Sunday.
-            </p>
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-3" data-reveal="3">
-              <Link href="/visit" className="btn btn-gold text-base">
+      {/* HERO — the church's own welcome picture: the Bankerts at the pulpit, their words on it */}
+      <section className="relative isolate overflow-hidden bg-[#efe6d6] text-ink">
+        {/* Desktop: the whole picture, their "Welcome to our church" lettering included */}
+        <div className="relative hidden h-[min(80svh,52rem)] min-h-[34rem] lg:block">
+          <Image src={photos.heroFamily.src} alt={photos.heroFamily.alt} fill priority sizes="100vw" className="object-cover object-[center_30%]" />
+          <h1 className="sr-only">Welcome to our church. A family church in Hernando with a seat saved for you.</h1>
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-[linear-gradient(to_top,rgba(60,38,20,0.55),transparent)]" aria-hidden />
+          <div className="wrap absolute inset-x-0 bottom-0 flex flex-wrap items-center gap-3 pb-8" data-reveal>
+            <Link href="/visit" className="btn btn-gold text-base">
+              Plan your Sunday
+            </Link>
+            <Link href="/watch" className="btn btn-white text-base">
+              <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_0_4px_rgba(239,68,68,0.35)]" aria-hidden />
+              Watch a service
+            </Link>
+          </div>
+        </div>
+        {/* Phone and tablet: the family, then the welcome in type */}
+        <div className="lg:hidden">
+          <div className="relative aspect-square w-full sm:aspect-[16/10]">
+            <Image src={photos.heroFamilyPhone.src} alt={photos.heroFamilyPhone.alt} fill priority sizes="100vw" className="object-cover object-[center_15%]" />
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(to_top,#efe6d6,transparent)]" aria-hidden />
+          </div>
+          <div className="wrap pb-8 pt-2 text-center">
+            <p className="script text-[2rem] text-gold">Welcome to our church</p>
+            <h1 className="display mt-1 text-[2.5rem] leading-[0.96]">A family church in Hernando with a seat saved for you.</h1>
+            <p className="mt-3 text-ink/75">“I was glad when they said unto me, Let us go into the house of the Lord.” Psalm 122:1</p>
+            <div className="mt-5 flex flex-wrap justify-center gap-3">
+              <Link href="/visit" className="btn btn-gold">
                 Plan your Sunday
               </Link>
-              <Link href="/watch" className="btn btn-ghost text-base">
-                <span className="inline-block h-2.5 w-2.5 rounded-full bg-red-500 shadow-[0_0_0_4px_rgba(239,68,68,0.35)]" aria-hidden />
+              <Link href="/watch" className="btn btn-ink">
                 Watch a service
               </Link>
             </div>
           </div>
         </div>
-
+        {/* The week, in one line */}
+        <div className="bg-brown text-white">
+          <div className="wrap flex flex-wrap items-center justify-center gap-x-6 gap-y-1 py-3 text-center text-sm sm:text-base">
+            <span>
+              <span className="eyebrow mr-2 text-[0.62rem] text-gold-light">Sundays</span>
+              <span className="time font-bold">10:00</span> Sunday School · <span className="time font-bold">11:00</span> Service · <span className="time font-bold">12:00</span> Lunch · <span className="time font-bold">1:00</span> Afternoon
+            </span>
+            <span>
+              <span className="eyebrow mr-2 text-[0.62rem] text-gold-light">Wednesdays</span>
+              <span className="time font-bold">6:30</span> Youth · <span className="time font-bold">7:00</span> Bible Study
+            </span>
+          </div>
+        </div>
       </section>
 
       {/* THE PASTOR — his face and his welcome, first thing after the hero */}
@@ -242,9 +257,9 @@ export default async function Home() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
-              { p: photos.depot, h: "Saturdays at the Depot", t: "First and third Saturdays at ten, outreach at the Inverness market, meeting the town and handing out the gospel.", href: "/ministries#outreach" },
+              { p: photos.doorToDoor2, h: "Saturdays at the Depot", t: "First and third Saturdays at ten, outreach at the Inverness market, meeting the town and handing out the gospel.", href: "/ministries#outreach" },
               { p: photos.youthRally, h: "Youth for Truth", t: "Wednesdays at 6:30: pizza, games and a Bible lesson. Youth rallies with preaching, prizes and team competition a few times a year.", href: "/ministries#youth" },
-              { p: photos.van, h: "Need a ride?", t: "The church van runs on Sunday mornings. Tell us where you are and it will be in your driveway.", href: "/visit#ride" },
+              { p: photos.vanCrew, h: "Need a ride?", t: "The church van runs on Sunday mornings. Tell us where you are and it will be in your driveway.", href: "/visit#ride" },
             ].map((m, i) => (
               <Link key={m.h} href={m.href} className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-ink/5 transition hover:shadow-xl" data-reveal={i}>
                 <div className="overflow-hidden">

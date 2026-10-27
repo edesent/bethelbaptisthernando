@@ -32,7 +32,7 @@ export default function Beliefs() {
           </>
         }
         lede="In the church’s own words. Every line has its chapter and verse."
-        photo="chalkArtist"
+        photo="openBible"
         position="center 40%"
       />
       <section className="bg-paper">
