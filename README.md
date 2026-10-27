@@ -31,7 +31,7 @@ Preview: https://bethelhernando.elijahdesent.com (hidden from search engines; se
 | Hope & Healing counseling | `counseling` in `src/lib/site.ts` |
 | Navigation | `nav` in `src/lib/site.ts` |
 | Photos and their captions | `public/photos/` and `src/lib/photos.ts` (the old hand-lettered "Welcome to Bethel" sign is deliberately not used; the current entrance wall photo is `welcome-wall.jpg`) |
-| The logo | `src/components/Brand.tsx` sets the lockup in live type so the small lettering stays crisp; `Logo.tsx` draws the church's mark as SVG. The original PNGs remain in `public/` as references. |
+| The logo | `public/logo-white.svg` / `logo-dark.svg` are the crisp vector lockups used by `src/components/Brand.tsx`; the original PNGs remain in `public/` as references. `Logo.tsx` is the standalone SVG mark for the favicon. |
 | The corner chat prompt | `src/components/ChatPrompt.tsx` |
 | The statement of faith | `src/app/about/beliefs/page.tsx` (their exact words) |
 
