@@ -35,6 +35,7 @@ const description = `${church.name}, an independent Baptist church in Hernando, 
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  alternates: { canonical: siteUrl },
   title: {
     default: `${church.name} · Hernando, FL`,
     template: `%s · ${church.name}`,
