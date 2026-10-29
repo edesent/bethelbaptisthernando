@@ -9,11 +9,11 @@
  * source only is listed under "Confirm with the church" in README.md.
  */
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bethelhernando.elijahdesent.com";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bethelbaptisthernando.org";
 
 /**
- * Preview hosts stay out of search. Once NEXT_PUBLIC_SITE_URL is set to the
- * church's real domain this turns off by itself.
+ * Preview hosts stay out of search. The production fallback is the church's
+ * real domain now that the site is live.
  */
 export const isDemo = /(\.dfd\.llc|\.vercel\.app|\.elijahdesent\.com)$/.test(new URL(siteUrl).hostname);
 

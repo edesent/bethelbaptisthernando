@@ -87,8 +87,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ChatPrompt />
         <Reveal />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        {/* Demo tracking (CRM → Demo Tracking). Remove at go-live. */}
-        <script async src="https://www.elijahdesent.com/demo.js" />
       </body>
     </html>
   );
