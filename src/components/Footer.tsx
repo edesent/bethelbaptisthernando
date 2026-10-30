@@ -80,7 +80,12 @@ export default function Footer() {
           <span>
             © {new Date().getFullYear()} {church.name} · Since {church.founded}
           </span>
-          <span>Hernando, {church.county}, Florida</span>
+          <span>
+            <a href="https://www.elijahdesent.com/churches" className="hover:text-gold-light" rel="noopener">
+              Church website development
+            </a>{" "}
+            by Elijah Desent
+          </span>
         </div>
       </div>
     </footer>
