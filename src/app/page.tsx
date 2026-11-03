@@ -205,6 +205,31 @@ export default async function Home() {
           <div className="mt-10" data-reveal>
             <Banners items={liveBanners} />
           </div>
+          <div className="mt-10" data-reveal>
+            <p className="eyebrow text-gold-deep">Harvest Fest, November 1</p>
+            <h3 className="display-soft mt-1 text-2xl">A Saturday of cowboys, hayrides and sack races.</h3>
+            <div className="mt-5 columns-2 gap-3 sm:columns-3 md:columns-4 [&>figure]:mb-3 [&>figure]:break-inside-avoid">
+              {(
+                [
+                  "harvestFestFamily",
+                  "harvestFestHayride",
+                  "harvestFestCowboys",
+                  "harvestFestSheriffKid",
+                  "harvestFestTargetToss",
+                  "harvestFestMomBaby",
+                  "harvestFestCrafts",
+                  "harvestFestSackRace",
+                ] as const
+              ).map((k) => {
+                const p = photos[k];
+                return (
+                  <figure key={k} className="overflow-hidden rounded-2xl shadow-md">
+                    <Image src={p.src} alt={p.alt} width={p.w} height={p.h} sizes="(min-width: 768px) 25vw, 50vw" className="w-full" />
+                  </figure>
+                );
+              })}
+            </div>
+          </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2" data-reveal="1">
             <div className="contents">
               <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5">

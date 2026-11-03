@@ -74,6 +74,14 @@ export const photos = {
   buildingBw: { src: "/photos/building-bw.jpg", w: 1069, h: 563, alt: "An old black-and-white photo of the church building" },
   piano: { src: "/photos/piano.jpg", w: 1350, h: 1800, alt: "A member playing the upright piano in the sanctuary" },
   girlCup: { src: "/photos/girl-cup.jpg", w: 1350, h: 1800, alt: "A girl holding up a fruit cup at a church lunch" },
+  harvestFestFamily: { src: "/photos/harvest-fest-family.jpg", w: 1187, h: 1400, alt: "A family in cowboy hats and western wear posing under an oak tree at Harvest Fest" },
+  harvestFestCowboys: { src: "/photos/harvest-fest-cowboys.jpg", w: 1400, h: 1050, alt: "Three men dressed as cowboys in the parking lot at Harvest Fest" },
+  harvestFestTargetToss: { src: "/photos/harvest-fest-target-toss.jpg", w: 1400, h: 1050, alt: "A man and a boy tossing bean bags at a target on the lawn at Harvest Fest" },
+  harvestFestHayride: { src: "/photos/harvest-fest-hayride.jpg", w: 1050, h: 1400, alt: "A man in a cowboy hat driving a lawn tractor pulling a wagon of children at Harvest Fest" },
+  harvestFestSheriffKid: { src: "/photos/harvest-fest-sheriff-kid.jpg", w: 1050, h: 1400, alt: "A boy dressed as a sheriff with a hat, goggles and a fake mustache at Harvest Fest" },
+  harvestFestMomBaby: { src: "/photos/harvest-fest-mom-baby.jpg", w: 1050, h: 1400, alt: "A woman in a cowboy hat holding a baby at Harvest Fest" },
+  harvestFestCrafts: { src: "/photos/harvest-fest-crafts.jpg", w: 1400, h: 1050, alt: "Girls in cowboy hats coloring at a craft table at Harvest Fest" },
+  harvestFestSackRace: { src: "/photos/harvest-fest-sack-race.jpg", w: 1400, h: 1050, alt: "Children lined up for a sack race on the lawn at Harvest Fest" },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
