@@ -21,6 +21,17 @@
   --pew-deep: #561c29;
   --sky: #dbe7ee;
   --peach: #f4cfae;
+
+  /* /analytics page (church-tools/site-analytics) */
+  --ct-accent: var(--gold);
+  --ct-accent-deep: var(--gold-deep);
+  --ct-heading: var(--ink);
+  --ct-ink: var(--ink);
+  --ct-muted: var(--muted);
+  --ct-line: var(--cream);
+  --ct-paper: #fff;
+  --ct-serif: var(--font-display), Georgia, serif;
+  --ct-sans: var(--font-body), system-ui, sans-serif;
 }
 
 @theme inline {

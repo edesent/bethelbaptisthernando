@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import ChatPrompt from "@/components/ChatPrompt";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <ChatPrompt />
         <Reveal />
+        <Analytics />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>
     </html>
