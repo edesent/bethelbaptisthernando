@@ -135,6 +135,55 @@ export const events: SpecialEvent[] = [
     when: "Sunday, November 1 · 10:30 AM",
     summary: "Corn hole, axe throwing, a chili cook-off, hayrides, tic-tac-toe and snow cones. Bring your favorite side.",
   },
+  {
+    title: "Pie Drive for CCSO",
+    start: "2026-11-15",
+    endsOn: "2026-11-15",
+    when: "Sunday, November 15",
+    summary: "Pie drive for CCSO.",
+  },
+  {
+    title: "Pastor Jim Townsley",
+    start: "2026-11-20",
+    endsOn: "2026-11-24",
+    when: "Friday, November 20 – Tuesday, November 24",
+    summary: "Special ministry with Pastor Jim Townsley.",
+  },
+  {
+    title: "Night of Thanksgiving",
+    start: "2026-11-25",
+    endsOn: "2026-11-25",
+    when: "Wednesday, November 25",
+    summary: "Night of Thanksgiving.",
+  },
+  {
+    title: "Family Christmas Party",
+    start: "2026-12-06",
+    endsOn: "2026-12-06",
+    when: "Sunday, December 6",
+    summary: "Family Christmas party.",
+  },
+  {
+    title: "Friday Family Film",
+    start: "2026-12-11",
+    endsOn: "2026-12-11",
+    when: "Friday, December 11",
+    summary: "Family film night.",
+  },
+  {
+    title: "Christmas Candlelight Service",
+    start: "2026-12-23",
+    endsOn: "2026-12-23",
+    when: "Wednesday, December 23",
+    summary: "Christmas Candlelight Service.",
+  },
+  {
+    title: "New Year's Celebration",
+    start: "2026-12-31",
+    endsOn: "2026-12-31",
+    when: "Thursday, December 31",
+    summary: "New Year's celebration.",
+  },
 ];
 
 /**
