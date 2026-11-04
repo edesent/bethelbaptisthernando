@@ -39,7 +39,7 @@ const big: { id: string; h: string; when: string; p: string; photo: PhotoKey; ph
     id: "counseling",
     h: counseling.name,
     when: "By appointment with the pastor",
-    p: `${counseling.summary} ${counseling.areas.join(", ")}. There is no charge. Call the church or write from the contact page and say you would like to talk; nothing you say leaves the room.`,
+    p: `${counseling.summary} ${counseling.areas.join(", ")}. Call the church or write from the contact page and say you would like to talk; nothing you say leaves the room.`,
     photo: "chalkArtist",
   },
 ];
