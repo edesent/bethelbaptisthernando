@@ -8,7 +8,7 @@ import { church, counseling } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Ministries",
-  description: `What ${church.name} does during the week: outreach at the Inverness Depot, Youth for Truth, the church van, Hope & Healing counseling, prayer breakfast, nursing home visits, ladies’ and men’s fellowships.`,
+  description: `What ${church.name} does during the week: outreach at the Inverness Depot, Youth for Truth, the church van, Hope & Healing counseling, and ladies’ and men’s fellowships.`,
 };
 
 const big: { id: string; h: string; when: string; p: string; photo: PhotoKey; photo2?: PhotoKey }[] = [
