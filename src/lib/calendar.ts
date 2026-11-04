@@ -306,6 +306,7 @@ export async function calendarBetween(from: string, to: string): Promise<CalEntr
   };
   for (const r of raws) {
     if (r.recurrenceId) continue;
+    if (/^prayer breakfast$/i.test(r.summary.trim())) continue;
     for (const d of occurrences(r, from, to)) {
       const o = overrides.get(`${r.uid}|${d}`);
       const src = o ?? r;
