@@ -46,7 +46,6 @@ const big: { id: string; h: string; when: string; p: string; photo: PhotoKey; ph
 
 const small = [
   ["Sunday School for all ages", "10:00 every Sunday. Adults in the sanctuary, Bible Explorers for ages 4–12, nursery to age three."],
-  ["Prayer Breakfast", "Third Saturday at nine. Breakfast, prayer and a devotion as a church family, then outreach at ten."],
   ["Ladies’ fellowships and Bible studies", "Luncheons with the tables set properly, and studies through the year."],
   ["Men’s fellowships and prayer breakfasts", "Work days, breakfasts, and prayer. The ramp got built this way."],
   ["Nursing home ministry", "Services and visits at nursing homes in the area, for people who can’t come to us."],
