@@ -48,7 +48,6 @@ const small = [
   ["Sunday School for all ages", "10:00 every Sunday. Adults in the sanctuary, Bible Explorers for ages 4–12, nursery to age three."],
   ["Ladies’ fellowships and Bible studies", "Luncheons with the tables set properly, and studies through the year."],
   ["Men’s fellowships and prayer breakfasts", "Work days, breakfasts, and prayer. The ramp got built this way."],
-  ["Nursing home ministry", "Services and visits at nursing homes in the area, for people who can’t come to us."],
   ["Soul winning and street ministry", "Door to door and at the Depot, with tracts and an invitation."],
   ["Bible conferences and special meetings", "Guest preachers, the Faith, Fathers & Family conference in January, revival meetings."],
   ["Counseling with the pastor", "Marriage, grief, decisions. Ask."],
