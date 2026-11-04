@@ -7,7 +7,7 @@ import { church, giving } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Give",
-  description: `Give to ${church.name} online through Tithe.ly, in the offering on Sunday, or by mail. The building fund, the van, and the gospel on McGee Drive.`,
+  description: `Give to ${church.name} online through Tithe.ly, in the offering on Sunday, or by mail. All offerings support the ministry of the local church.`,
 };
 
 export default function Give() {
