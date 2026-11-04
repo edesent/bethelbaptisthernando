@@ -198,7 +198,6 @@ export const banners: { src: string; alt: string; href?: string; endsOn?: string
   { src: "/banners/need-a-ride.jpg", alt: "Need a ride to church? The Bethel Baptist Church van, with the church phone number", href: "/visit#ride" },
   { src: "/banners/outreach-depot.jpg", alt: "Outreach Ministry, every first and third Saturday, 9 AM to 12 PM at the Market at the Depot, 300 N Apopka Ave, Inverness", href: "/ministries#outreach" },
   { src: "/banners/hope-and-healing.jpg", alt: "Hope and Healing: compassionate, Christ-centered counseling for individuals, couples and families. Marriage counseling, addictions recovery, depression and anxiety support.", href: "/ministries#counseling" },
-  { src: "/banners/potluck-sunday.jpg", alt: "Potluck Sunday, every first Sunday, followed by the afternoon service", href: "/visit" },
   { src: "/banners/minivan.jpg", alt: "Bethel Baptist Church is in need of a minivan. Please help if you are able.", href: "/give" },
 ];
 
