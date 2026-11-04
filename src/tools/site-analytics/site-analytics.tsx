@@ -241,7 +241,7 @@ function SignIn() {
   return (
     <form className="ct-sa-card ct-sa-signin" onSubmit={send}>
       <h3>Sign in to see the numbers</h3>
-      <p>Use the same email you use to edit the website. We’ll email you a link to sign in.</p>
+      <p>Enter the church’s email address and we’ll email you a link to sign in.</p>
       {expired && <p className="ct-sa-error">That sign-in link has expired. Send yourself a new one.</p>}
       <label htmlFor="ct-sa-email">Email</label>
       <input

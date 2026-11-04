@@ -13,8 +13,8 @@ export const analyticsConfig = {
   //         Needs the DFD editor installed (src/edit).
   // false → anyone with the page's address sees the numbers; the browser calls
   //         elijahdesent.com directly with `publicKey`. For demos without the editor.
-  signIn: false,
+  signIn: true,
 
   // Only when signIn is false: the site's analytics key (sak_…).
-  publicKey: "sak_eyJoIjpbImJldGhlbGJhcHRpc3RoZXJuYW5kby5vcmciLCJiZXRoZWxoZXJuYW5kby5lbGlqYWhkZXNlbnQuY29tIl19.kBSTKEHO9gFpoCKDGbBQ2fFU",
+  publicKey: "",
 };
