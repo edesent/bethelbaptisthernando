@@ -96,7 +96,6 @@ export const services: Service[] = [
 export const monthly = [
   { title: "Potluck Sunday", when: "First Sunday after the morning service", where: "Fellowship hall", note: "Bring a dish if you can. If you can’t, come anyway." },
   { title: "Outreach at the Depot", when: "First and third Saturdays, 9:00 AM – noon", where: "Market at the Depot, 300 N Apopka Ave, Inverness", note: "Outreach at the market. Come anytime between nine and noon." },
-  { title: "Prayer Breakfast", when: "Third Saturday, 9:00 AM", where: "Fellowship hall", note: "Breakfast and prayer as a church family, then outreach." },
   { title: "Youth Night at the Inverness Depot", when: "Third Thursday, 5:30 PM", where: "300 N Apopka Ave, Inverness", note: "Meeting the young people of Inverness and giving them the gospel." },
 ];
 
