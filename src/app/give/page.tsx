@@ -61,14 +61,9 @@ export default function Give() {
           </div>
           <div data-reveal="1">
             <p className="eyebrow text-gold-deep">Where it goes</p>
-            <h2 className="display mt-3 text-4xl sm:text-5xl">The building, the van, the gospel.</h2>
+            <h2 className="display mt-3 text-4xl sm:text-5xl">Supporting the work of the church.</h2>
             <div className="prose-site mt-6 text-lg text-ink/85">
-              <p>
-                In 2025 and 2026 the members rebuilt the church with their own hands, and the church is still praying toward{" "}
-                {giving.buildingGoal} of repairs on its buildings. The van runs every Sunday on gas and tires. Tracts go out at the Depot
-                twice a month. Missionaries get supported from Hernando to the uttermost parts of the earth.
-              </p>
-              <p>Nobody at Bethel is paid from the offering. It all goes to the work.</p>
+              <p>All offerings go to support the ministry of the local church.</p>
             </div>
             <figure className="mt-8 overflow-hidden rounded-2xl shadow-lg">
               <Image src={photos.renovationWall.src} alt={photos.renovationWall.alt} width={photos.renovationWall.w} height={photos.renovationWall.h} sizes="(min-width: 768px) 45vw, 100vw" className="aspect-[4/3] w-full object-cover object-[center_30%]" />
