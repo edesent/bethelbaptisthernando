@@ -92,6 +92,9 @@ export default function Ministries() {
                 )}
                 {m.id === "counseling" && (
                   <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <Link href="/counseling" className="btn btn-gold">
+                      Counseling with Pastor Brandon
+                    </Link>
                     <Link href="/contact" className="btn btn-ink">
                       Ask to talk
                     </Link>
