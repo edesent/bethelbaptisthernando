@@ -219,6 +219,17 @@ export const counseling = {
   verse: { text: "He healeth the broken in heart, and bindeth up their wounds.", ref: "Psalm 147:3" },
 };
 
+/**
+ * Citrus Marriage Counseling: Pastor Brandon's counseling practice, a
+ * ministry of the church with its own site (Brandon, by text, 2026-11-06).
+ * Open to anyone, whether or not they attend Bethel.
+ */
+export const counselingPractice = {
+  name: "Citrus Marriage Counseling",
+  url: "https://www.citrusmarriagecounseling.com",
+  consultUrl: "https://www.citrusmarriagecounseling.com/free-consultation",
+};
+
 export const nav = [
   { href: "/visit", label: "Visit" },
   { href: "/about", label: "About" },
