@@ -46,9 +46,15 @@ export default function Footer() {
           <ul className="mt-3 grid grid-cols-2 gap-y-2 text-white/85">
             {nav.map((n) => (
               <li key={n.href}>
-                <Link href={n.href} className="hover:text-gold-light">
-                  {n.label}
-                </Link>
+                {n.href.startsWith("http") ? (
+                  <a href={n.href} rel="noopener" className="hover:text-gold-light">
+                    {n.label}
+                  </a>
+                ) : (
+                  <Link href={n.href} className="hover:text-gold-light">
+                    {n.label}
+                  </Link>
+                )}
               </li>
             ))}
             <li>
