@@ -34,17 +34,21 @@ export default function Header() {
           </Link>
 
           <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Main">
-            {nav.map((n) => (
-              <Link
-                key={n.href}
-                href={n.href}
-                className={`rounded-full px-3.5 py-2 text-[0.95rem] font-semibold transition ${
-                  path === n.href || (n.href !== "/" && path.startsWith(n.href)) ? "bg-white/15" : "hover:bg-white/10"
-                }`}
-              >
-                {n.label}
-              </Link>
-            ))}
+            {nav.map((n) => {
+              const external = n.href.startsWith("http");
+              const className = `rounded-full px-3.5 py-2 text-[0.95rem] font-semibold transition ${
+                !external && (path === n.href || (n.href !== "/" && path.startsWith(n.href))) ? "bg-white/15" : "hover:bg-white/10"
+              }`;
+              return external ? (
+                <a key={n.href} href={n.href} rel="noopener" className={className}>
+                  {n.label}
+                </a>
+              ) : (
+                <Link key={n.href} href={n.href} className={className}>
+                  {n.label}
+                </Link>
+              );
+            })}
             <Link href="/visit" className="btn btn-gold ml-3 px-5 py-2.5 text-sm">
               Sunday <span className="time">10:00 AM</span>
             </Link>
