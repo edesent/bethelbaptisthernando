@@ -234,7 +234,7 @@ export const nav = [
   { href: "/visit", label: "Visit" },
   { href: "/about", label: "About" },
   { href: "/ministries", label: "Ministries" },
-  { href: "/counseling", label: "Counseling" },
+  { href: counselingPractice.url, label: "Counseling" },
   { href: "/events", label: "Events" },
   { href: "/watch", label: "Watch" },
   { href: "/give", label: "Give" },
