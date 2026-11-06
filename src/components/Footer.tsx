@@ -61,11 +61,6 @@ export default function Footer() {
                 The rebuild
               </Link>
             </li>
-            <li>
-              <Link href="/counseling" className="hover:text-gold-light">
-                Counseling
-              </Link>
-            </li>
           </ul>
           <p className="mt-6 flex flex-wrap gap-4 text-white/85">
             <a href={church.facebook} className="hover:text-gold-light" rel="noopener">
