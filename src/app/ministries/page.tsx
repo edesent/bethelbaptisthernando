@@ -4,7 +4,7 @@ import Link from "next/link";
 import PageHead from "@/components/PageHead";
 import Phone from "@/components/Phone";
 import { photos, type PhotoKey } from "@/lib/photos";
-import { church, counseling } from "@/lib/site";
+import { church, counseling, counselingPractice } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Ministries",
