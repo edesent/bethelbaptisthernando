@@ -93,12 +93,19 @@ export default function Header() {
           </button>
         </div>
         <nav className="wrap flex flex-1 flex-col justify-center gap-0.5 pb-12" aria-label="Main">
-          {nav.map((n, i) => (
-            <Link key={n.href} href={n.href} className="display flex items-baseline justify-between border-b border-white/15 py-3.5 text-[2.1rem]">
-              {n.label}
-              <span className="time text-sm text-gold-light">0{i + 1}</span>
-            </Link>
-          ))}
+          {nav.map((n, i) =>
+            n.href.startsWith("http") ? (
+              <a key={n.href} href={n.href} rel="noopener" className="display flex items-baseline justify-between border-b border-white/15 py-3.5 text-[2.1rem]">
+                {n.label}
+                <span className="time text-sm text-gold-light">0{i + 1}</span>
+              </a>
+            ) : (
+              <Link key={n.href} href={n.href} className="display flex items-baseline justify-between border-b border-white/15 py-3.5 text-[2.1rem]">
+                {n.label}
+                <span className="time text-sm text-gold-light">0{i + 1}</span>
+              </Link>
+            )
+          )}
           <p className="mt-8 text-gold-light">
             Sundays <span className="time font-bold text-white">10:00 AM</span> · {church.streetNumber} {church.street}, {church.city}
           </p>
