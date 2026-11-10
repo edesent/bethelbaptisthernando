@@ -28,7 +28,7 @@ export default function ChatPrompt() {
         data-agent-icon={CHAT.agentIcon}
         data-greeting={CHAT.greeting}
         data-form-subtitle={CHAT.formSubtitle}
-        data-dismiss-days="1"
+        data-dismiss-until-reload="true"
         strategy="afterInteractive"
         onError={() => setFailed(true)}
       />
