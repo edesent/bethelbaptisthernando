@@ -94,7 +94,7 @@ export const services: Service[] = [
 
 /** What happens on the same day every month, from their flyers and calendar. */
 export const monthly = [
-  { title: "Potluck Sunday", when: "First Sunday after the morning service", where: "Fellowship hall", note: "Bring a dish if you can. If you can’t, come anyway." },
+  { title: "Lunch Every Week", when: "After the morning service every Sunday", where: "Fellowship hall", note: "Bring a dish if you can. If you can’t, come anyway." },
   { title: "Outreach at the Depot", when: "First and third Saturdays, 9:00 AM – noon", where: "Market at the Depot, 300 N Apopka Ave, Inverness", note: "Outreach at the market. Come anytime between nine and noon." },
   { title: "Youth Night at the Inverness Depot", when: "Third Thursday, 5:30 PM", where: "300 N Apopka Ave, Inverness", note: "Meeting the young people of Inverness and giving them the gospel." },
 ];
