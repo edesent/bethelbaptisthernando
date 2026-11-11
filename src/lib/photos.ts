@@ -66,7 +66,7 @@ export const photos = {
   airHockey: { src: "/photos/air-hockey.jpg", w: 1800, h: 1350, alt: "Kids around an air hockey table in the fellowship hall" },
   depotTable: { src: "/photos/depot-table.jpg", w: 1635, h: 1077, alt: "The check-in table at Vacation Bible School, with the Ambassador Air welcome sign" },
   depot: { src: "/photos/depot.jpg", w: 1170, h: 879, alt: "The old train depot in Inverness on market day" },
-  chalkArtist: { src: "/photos/chalk-artist.jpg", w: 1800, h: 1350, alt: "A chalk artist’s finished drawing, Jesus is Knocking, on an easel in the sanctuary" },
+  chalkArtist: { src: "/photos/dd9f04f6-5f6b-4855-b5c3-26ab1cfd77d3.png", w: 1536, h: 1024, alt: "Two men talking together over an open Bible in a warm, welcoming setting" },
   bathroomReno: { src: "/photos/bathroom-reno.jpg", w: 1800, h: 1350, alt: "A freshly rebuilt restroom with new flooring and fixtures" },
   yardWork: { src: "/photos/yard-work.jpg", w: 1350, h: 1800, alt: "Filling water balloons in a bucket beside the fellowship hall on water day" },
   pastorWifeSinging: { src: "/photos/pastor-wife-singing.jpg", w: 1170, h: 693, alt: "Pastor Bankert and his wife singing at the front of the sanctuary" },
