@@ -187,7 +187,7 @@ export const events: SpecialEvent[] = [
     endsOn: "2026-12-31",
     time24: "19:00",
     when: "Thursday, December 31 · 7:00 PM",
-    summary: "No Wednesday night service on Dec. 30.",
+    summary: "No Wednesday night service on Dec. 30. Bring your favorite party dish.",
   },
 ];
 
