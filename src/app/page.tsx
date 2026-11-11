@@ -90,9 +90,7 @@ export default async function Home() {
               Hi, I’m <span className="script text-gold">Pastor Brandon.</span>
             </h2>
             <blockquote className="mt-6 text-xl leading-relaxed text-ink/85 sm:text-2xl">
-              “If you walk through our door Sunday, I will meet you there, and you’ll leave knowing a few names. We’re a church family, we
-              sing the old hymns, we preach the King James Bible, and we eat lunch together every week. Write me anytime. I read every
-              message myself.”
+              “If you walk through our door Sunday, I will meet you there, and you’ll leave knowing a few names. We’re a friendly church family, sing the old hymns, preach the King James Bible, and eat lunch together every week. Write me anytime, and I will answer you back.”
             </blockquote>
             <p className="mt-4 text-muted">
               {pastor.styled} · pastor since {pastor.since} · husband and dad of three
