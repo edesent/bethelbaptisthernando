@@ -207,7 +207,7 @@ export default async function Home() {
           </div>
           <div className="mt-10" data-reveal>
             <p className="eyebrow text-gold-deep">Harvest Fest, November 1</p>
-            <h3 className="display-soft mt-1 text-2xl">A Saturday of cowboys, hayrides and sack races.</h3>
+            <h3 className="display-soft mt-1 text-2xl">A Sunday of cowboys, hayrides and sack races.</h3>
             <div className="mt-5 columns-2 gap-3 sm:columns-3 md:columns-4 [&>figure]:mb-3 [&>figure]:break-inside-avoid">
               {(
                 [
