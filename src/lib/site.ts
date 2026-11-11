@@ -171,7 +171,7 @@ export const events: SpecialEvent[] = [
     endsOn: "2026-12-11",
     time24: "18:00",
     when: "Friday, December 11 · 6:00 PM",
-    summary: "Family film night.",
+    summary: "Family film night. Snacks will be provided.",
   },
   {
     title: "Christmas Candlelight Service",
