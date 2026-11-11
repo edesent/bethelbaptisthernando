@@ -24,7 +24,7 @@ const big: { id: string; h: string; when: string; p: string; photo: PhotoKey; ph
     id: "youth",
     h: "Youth for Truth",
     when: "Wednesdays · 6:30 PM · at the church",
-    p: "Pizza, games and a Bible lesson for teenagers, before the adult Bible study at seven. A few times a year the church throws a youth rally with team competition, prizes and preaching, and in July the kids take over the building for Vacation Bible School. On the third Thursday of the month a group goes to the Inverness Depot to meet the young people who hang out there.",
+    p: "Pizza, games and a Bible lesson for teenagers, before the adult Bible study at seven. A few times a year the church throws a youth rally with team competition, prizes and preaching, and in July the kids take over the building for Vacation Bible School. We believe our youth are the future, and we must reach them for Christ before the sin of this world gets hold of them.",
     photo: "youthConference",
     photo2: "vbsFlagsWide",
   },
