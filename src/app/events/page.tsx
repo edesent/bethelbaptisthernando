@@ -10,6 +10,95 @@ export const metadata: Metadata = {
   description: `What is coming up at ${church.name}: services, the Sunday lunch rotation, outreach Saturdays, youth nights, Harvest Fest and more, straight from the church calendar.`,
 };
 
+const prayerSections = [
+  {
+    title: "Missionaries",
+    requests: [
+      "Bethesda Children’s Home",
+      "Christian Law Association",
+      "Hope Children’s Home",
+      "Bundles of Hope",
+      "Fielder - Worldview Missions",
+      "Hamilton - Moldova",
+      "Holt - Sierra Leone",
+      "Kelly - Deaf communities of America",
+      "Kotvas - Peru",
+      "Lees - Bahamas",
+      "Muscott - Lifeline Baptist Seamen Ministry",
+      "Ottosen - Papua New Guinea",
+      "Parrott - Military Missions",
+      "Rock of Ages - U.S. Prisons",
+      "Rosko - U.S. Military in South Korea",
+      "Wyatt - South Africa",
+    ],
+  },
+  {
+    title: "Health Needs",
+    requests: [
+      "Kelly—brain cancer",
+      "David Philips—neck cancer",
+      "Ann Marie—breast cancer",
+      "Susie—stage 4 cancer",
+      "Tim Gabbert—skin cancer",
+      "Dawn—bone marrow cancer",
+      "Curve/Rosie/Ethan Bankert—health/mom’s eye/brain",
+      "Kathy Summerfield—cancer",
+      "Yvette O’Donell’s Mom—stage 4 cancer",
+      "Joe Gonzales’ son—cancer",
+      "John/Lilia Swanson—bone marrow/stage 3 liver cirrhosis",
+      "Myrtle/Deb—pain/pneumonia/back pain",
+      "Jean (Jenny’s Mom)—struggling with tinnitus (ear ringing)",
+      "Pregnancies—Ana W, & Deb J, Hannah L, Kaylin F, Alizayah M, Tiffany M, Ashley B.",
+      "Kevin/Katherine/Wilson family—dizzy/back pain/unspoken/health",
+      "Mary—bulging disc",
+      "David/Bob Anderson—broken hip/blood clot & rehab",
+      "Mary Sup—bleeding-high blood pressure-salvation",
+      "Connor—lung infection",
+      "Ryan/Dog Anya—pain in arm/health",
+      "Eliana—fever/tolerating chemo",
+      "Don/wife—health issues",
+      "Melissa (Ryan’s friend)—health needs-cancer free",
+      "Christina’s family—grandparents/parents/cousin Eva",
+      "Kim Morgan—mental health",
+      "Pat/Ayla—baby premature/mom recovering",
+      "Bonnie—neck recovery",
+      "Roni—hysterectomy",
+      "Comeille—dimensia/alzheimer’s",
+      "Michael—brain bleed",
+      "Joe—health needs at 7 years old",
+      "Babies-Reacher Groves/Andrew Barnes/Selah Higgins—health",
+      "Lisa (Emily’s co-worker)—knee problems",
+      "Rebecca’s Family—moto accident",
+      "Marilyn—heart attack, blood clots, leg pain",
+      "George Chiggi—leg pain",
+      "David Noel—brain recovery",
+      "Crystal Zeiwey—kidney transplant",
+      "George Berridge—open heart surgery/salvation",
+      "Angelina Navarro—gulblatter removal recovery",
+      "Aunt Patty Thompson—heart procedure recovery",
+      "Richard Planchard—heart troubles",
+      "Katherine—sinus infection",
+      "Mrs. Stine—shoulder recovery",
+      "Alex Mosh—sezuires",
+      "Mary Reece—back pain again",
+    ],
+  },
+  {
+    title: "Special Needs",
+    requests: [
+      "America/leaders/military/1st responders/Israel",
+      "Suzanne & Charlie/Flecks—marital problems",
+      "Emmitt/Clark Wilson—unspoken/health",
+      "Jake Baker/Joe Kelley—addiction/family/jail",
+      "Unspokens",
+      "Pete—salvation",
+      "Pastor Green—Daughter’s boyfriend shot & killed",
+      "Christians to act like Christian/the gospel",
+      "Melissa—anxiety",
+    ],
+  },
+];
+
 export default async function Events() {
   const now = nowInChurch();
   const list = await calendarBetween(now.date, addDays(now.date, 120));
@@ -127,6 +216,30 @@ export default async function Events() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* PRAYER LIST */}
+      <section className="bg-paper">
+        <div className="wrap py-16 md:py-24">
+          <p className="eyebrow text-gold-deep" data-reveal>Prayer together</p>
+          <h2 className="display mt-3 text-4xl sm:text-5xl" data-reveal="1">Church prayer list.</h2>
+          <p className="mt-4 max-w-3xl text-ink/75" data-reveal="2">
+            Please keep these people, families, missionaries, and special needs in your prayers.
+            We invite our church family to pray faithfully and respectfully for each request.
+          </p>
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {prayerSections.map((section, index) => (
+              <section key={section.title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5" data-reveal={String(index)}>
+                <h3 className="display-soft text-2xl">{section.title}</h3>
+                <ol className="mt-5 list-decimal space-y-2.5 pl-5 text-ink/85 marker:font-semibold marker:text-gold-deep">
+                  {section.requests.map((request) => (
+                    <li key={request} className="pl-1 leading-relaxed">{request}</li>
+                  ))}
+                </ol>
+              </section>
+            ))}
           </div>
         </div>
       </section>
