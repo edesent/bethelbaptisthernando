@@ -87,6 +87,8 @@ const prayerSections = [
       "Joe Gonzales’ son (salvation)",
       "Suzanne & Charlie/Flecks (marital)",
       "Melissa (anxiety)",
+      "Austin Wiley (cousin in prison)",
+      "Gavin Wiley (trying to enlist in the Army)",
     ],
   },
   { title: "Jones Family", requests: [] },
