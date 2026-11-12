@@ -44,6 +44,91 @@ const big: { id: string; h: string; when: string; p: string; photo: PhotoKey; ph
   },
 ];
 
+
+const prayerSections = [
+  {
+    title: "Armstrong Family",
+    requests: ["Work"],
+  },
+  {
+    title: "Bankert Family",
+    requests: [
+      "Pregnancies — Kaylin F, Alizayah M, Tiffany M, Ashley B",
+      "Baby Andrew Barnes, Baby Selah Higgins",
+      "Crystal Zeiwey (kidney transplant)",
+      "Bankert family (health/mom’s eye)",
+      "Cifelli family (parents/grandparents/cousin Eva)",
+      "Alex Mosh (seizures/brain surgery on 11/23/26)",
+      "Yvette O’Donell’s Mom (stage 4)",
+      "Pastor (foot pain)",
+      "Tim Gabbert (in hospital, fell)",
+    ],
+  },
+  {
+    title: "Bus Family",
+    requests: ["Layla", "London", "Nahla", "Ah’mari", "Ah’mani", "Anthony", "Maddison"],
+  },
+  {
+    title: "Cook Family",
+    requests: [
+      "John/Lilia Swanson (bone marrow/stage 3)",
+      "Myrtle/Deb (leg pain/pneumonia/back pain)",
+    ],
+  },
+  {
+    title: "Extended Church Family",
+    requests: ["Mrs. Stine (shoulder recovery)", "George Chiggi (Health)"],
+  },
+  {
+    title: "Glaze Family",
+    requests: [
+      "Jake Baker/Joe Kelley (addiction/family/jail)",
+      "Ryan/Dog Anya/Jean/Melissa (arm/eye/tinnitus/health)",
+      "Joe Gonzales’ son (salvation)",
+      "Suzanne & Charlie/Flecks (marital)",
+      "Melissa (anxiety)",
+    ],
+  },
+  { title: "Jones Family", requests: [] },
+  {
+    title: "Spell Family",
+    requests: ["David (seizures)"],
+  },
+  {
+    title: "Wilson Family",
+    requests: [
+      "Patty Thompson (heart procedure recovery)",
+      "Emmitt/Clark/Shawn/Kevin (unspoken/health/job/dizzy & back)",
+    ],
+  },
+  { title: "Womack Family", requests: [] },
+  {
+    title: "Special Needs",
+    requests: ["American leaders", "Military", "1st responders", "Israel", "Unspokens"],
+  },
+  {
+    title: "Missionaries",
+    requests: [
+      "Bethesda Children’s Home",
+      "Christian Law Association",
+      "Hope Children’s Home",
+      "Bundles of Hope",
+      "Fielder (Worldview Missions)",
+      "Hamilton (Moldova)",
+      "Holt (Sierra Leone)",
+      "Kelly (Deaf communities of America)",
+      "Kotvas (Peru)",
+      "Lees (Bahamas)",
+      "Muscott (Lifeline Baptist Seamen Ministry)",
+      "Ottosen (Papua New Guinea)",
+      "Parrott (Military Mission)",
+      "Rock of Ages (U.S. Prisons)",
+      "Rosko (U.S. Military in South Korea)",
+      "Wyatt (South Africa)",
+    ],
+  },
+];
+
 const small = [
   ["Sunday School for all ages", "10:00 every Sunday. Adults in the sanctuary, Bible Explorers for ages 4–12, nursery to age three."],
   ["Ladies’ fellowships and Bible studies", "Luncheons with the tables set properly, and studies through the year."],
