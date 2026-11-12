@@ -132,30 +132,6 @@ export default async function Events() {
         </div>
       </section>
 
-      {/* PRAYER LIST */}
-      <section className="bg-paper">
-        <div className="wrap py-16 md:py-24">
-          <p className="eyebrow text-gold-deep" data-reveal>Prayer together</p>
-          <h2 className="display mt-3 text-4xl sm:text-5xl" data-reveal="1">Church prayer list.</h2>
-          <p className="mt-4 max-w-3xl text-ink/75" data-reveal="2">
-            Please keep these people, families, missionaries, and special needs in your prayers.
-            We invite our church family to pray faithfully and respectfully for each request.
-          </p>
-          <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {prayerSections.map((section, index) => (
-              <section key={section.title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5" data-reveal={String(index)}>
-                <h3 className="display-soft text-2xl">{section.title}</h3>
-                <ol className="mt-5 list-decimal space-y-2.5 pl-5 text-ink/85 marker:font-semibold marker:text-gold-deep">
-                  {section.requests.map((request) => (
-                    <li key={request} className="pl-1 leading-relaxed">{request}</li>
-                  ))}
-                </ol>
-              </section>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* THE CALENDAR ITSELF */}
       <section className="bg-paper-deep">
         <div className="wrap py-16 md:py-24">
