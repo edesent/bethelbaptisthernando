@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
       { source: "/gallery", destination: "/about/rebuild", permanent: true },
       { source: "/give-online", destination: "/give", permanent: true },
       { source: "/service-times", destination: "/visit", permanent: true },
+      // The private visitors page moved to /stats.
+      { source: "/analytics", destination: "/stats", permanent: true },
     ];
   },
 };

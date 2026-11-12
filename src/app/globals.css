@@ -22,7 +22,7 @@
   --sky: #dbe7ee;
   --peach: #f4cfae;
 
-  /* /analytics page (church-tools/site-analytics) */
+  /* /stats page (church-tools/site-analytics) */
   --ct-accent: var(--gold);
   --ct-accent-deep: var(--gold-deep);
   --ct-heading: var(--ink);

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function AnalyticsPage() {
+export default function StatsPage() {
   return (
     <section className="bg-paper">
       <div className="wrap py-12 md:py-16">

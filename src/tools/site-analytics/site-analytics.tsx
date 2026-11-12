@@ -212,7 +212,7 @@ function SignIn() {
       const r = await fetch("/api/edit/login", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email: addr, next: "/analytics" }),
+        body: JSON.stringify({ email: addr, next: "/stats" }),
       });
       const j = (await r.json().catch(() => ({}))) as { error?: string };
       if (r.ok) setSent(addr.trim());

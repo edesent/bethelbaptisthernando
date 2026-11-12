@@ -1,5 +1,5 @@
 /**
- * Emailed-link sign-in for the private /analytics page (the sign-in half of the
+ * Emailed-link sign-in for the private /stats page (the sign-in half of the
  * DFD site editor; this site has no /edit). Secrets and the allowed email
  * addresses stay in the hosting environment.
  */

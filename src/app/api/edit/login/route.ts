@@ -47,7 +47,7 @@ export async function POST(req: Request) {
   const link = `${requestOrigin(req)}/api/edit/verify?t=${linkToken(email)}`;
   const what = {
     subject: `Visitors to the ${EDITOR.siteShortName} website`,
-    line: `see who has been visiting the ${EDITOR.siteName} website. It opens ${PUBLIC_SITE}/analytics`,
+    line: `see who has been visiting the ${EDITOR.siteName} website. It opens ${PUBLIC_SITE}/stats`,
     button: "See the visitor numbers",
   };
   const r = await fetch("https://api.resend.com/emails", {
