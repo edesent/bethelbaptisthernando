@@ -150,12 +150,12 @@ export const events: SpecialEvent[] = [
     summary: "Special ministry with Pastor Jim Townsley.",
   },
   {
-    title: "Night of Thanksgiving",
-    start: "2026-11-25",
-    endsOn: "2026-11-25",
-    time24: "18:00",
-    when: "Wednesday, November 25 · 6:00 PM",
-    summary: "Night of Thanksgiving.",
+    title: "Thanksgiving Meal",
+    start: "2026-11-22",
+    endsOn: "2026-11-22",
+    time24: "12:00",
+    when: "Sunday, November 22 · 12:00 PM",
+    summary: "Join us for a Thanksgiving meal at noon.",
   },
   {
     title: "Family Christmas Party",
