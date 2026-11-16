@@ -110,7 +110,7 @@ export default async function Events() {
           <div data-reveal="1">
             <p className="eyebrow text-gold-deep">Every week</p>
             <ul className="mt-4 divide-y divide-ink/10 rounded-2xl bg-paper-deep px-5">
-              {services.map((s) => (
+              {services.filter((s) => s.id !== "lunch").map((s) => (
                 <li key={s.id} className="flex items-baseline justify-between gap-4 py-3">
                   <span>
                     <span className="font-semibold">{s.name}</span>
