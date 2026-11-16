@@ -146,7 +146,7 @@ export const events: SpecialEvent[] = [
     start: "2026-11-21",
     endsOn: "2026-11-23",
     when: "Saturday, November 21 – Monday, November 23",
-    summary: "Special ministry with Pastor Jim Townsley.",
+    summary: "Pastor Jim Townsley will be with us Saturday through Monday, November 21–23.",
   },
   {
     title: "Thanksgiving Meal",
