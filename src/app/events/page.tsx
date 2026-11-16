@@ -14,11 +14,15 @@ export const metadata: Metadata = {
 export default async function Events() {
   const now = nowInChurch();
   const list = await calendarBetween(now.date, addDays(now.date, 120));
-  const upcoming = list.filter((e) => {
+  const future = list.filter((e) => {
     if (e.date !== now.date || !e.time24) return true;
     const [h, m] = e.time24.split(":").map(Number);
     return h * 60 + m >= now.minutes - 90;
   });
+  // Show only the next upcoming lunch/potluck, rather than every recurring one.
+  const lunchEntries = future.filter((e) => /\b(lunch|potluck)\b/i.test(e.title));
+  const nextLunch = lunchEntries[0];
+  const upcoming = future.filter((e) => !/\b(lunch|potluck)\b/i.test(e.title) || e === nextLunch);
   const specials = upcoming.filter((e) => !e.standing);
   // Group the next 14 days by day for the agenda.
   const agendaEnd = addDays(now.date, 14);
