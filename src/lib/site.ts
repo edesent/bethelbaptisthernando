@@ -242,6 +242,7 @@ export const nav = [
   { href: counselingPractice.url, label: "Counseling" },
   { href: "/events", label: "Events" },
   { href: "/watch", label: "Watch" },
+  { href: "/sermons", label: "Sermons" },
   { href: "/give", label: "Give" },
   { href: "/contact", label: "Contact" },
 ];
