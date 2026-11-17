@@ -10,7 +10,7 @@ export const sermonLibraryConfig = {
 
   // Public link to the channel — used by the "watch on YouTube" fallback button
   // when the channel has no videos yet.
-  youtubeUrl: "https://www.youtube.com/@WestviewBaptistChurch",
+  youtubeUrl: "https://www.youtube.com/@bethelbaptistchurch-hernan2627",
 
   // How many recent messages to show in the grid.
   limit: 12,
