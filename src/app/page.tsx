@@ -73,7 +73,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <SermonMiniWindow />
 
       {/* THE PASTOR — his face and his welcome, first thing after the hero */}
       <section id="pastor" className="bg-paper">
