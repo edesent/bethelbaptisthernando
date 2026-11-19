@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SermonMiniWindow from "@/components/SermonMiniWindow";
 import { photos, type PhotoKey } from "@/lib/photos";
 
 /** The photographic band at the top of every inner page. */
