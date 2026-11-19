@@ -48,6 +48,11 @@ const encouragementByPage: Record<string, { heading: string; verse: string; refe
     verse: "And let us consider one another to provoke unto love and to good works: Not forsaking the assembling of ourselves together.",
     reference: "Hebrews 10:24–25 · KJV",
   },
+  "/watch": {
+    heading: "Keep your eyes on Christ",
+    verse: "Looking unto Jesus the author and finisher of our faith.",
+    reference: "Hebrews 12:2 · KJV",
+  },
 };
 
 const defaultEncouragement = {
