@@ -27,7 +27,6 @@ export default function PageHead({
           {lede && <p className="text-shadow mt-5 max-w-2xl text-lg text-white/85 sm:text-xl">{lede}</p>}
         </div>
       </section>
-      <SermonMiniWindow />
     </>
   );
 }
