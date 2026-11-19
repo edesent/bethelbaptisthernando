@@ -1,31 +1,21 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 
 export default function SermonMiniWindow() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(true);
 
   if (pathname === "/sermons" || pathname.startsWith("/sermons/")) return null;
 
   return (
-    <aside className="fixed top-24 right-4 z-40 w-[min(19rem,calc(100vw-2rem))] overflow-hidden rounded-xl border border-gold/40 bg-white shadow-2xl">
-      <div className="flex items-center justify-between gap-3 bg-brown-deep px-4 py-3 text-white">
-        <span className="text-sm font-bold">A Word from Bethel</span>
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-expanded={open}
-          aria-label={open ? "Minimize sermon window" : "Open sermon window"}
-          className="rounded px-2 py-1 text-sm text-gold-light hover:bg-white/10"
-        >
-          {open ? "−" : "+"}
-        </button>
-      </div>
-      {open && (
-        <>
-          <div className="aspect-video bg-brown-deep">
+    <section className="bg-paper-deep px-4 py-8 md:py-10">
+      <div className="wrap">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-ink/10">
+          <div className="bg-brown-deep px-5 py-3 text-white sm:px-7">
+            <p className="eyebrow text-gold-light">A Word from Bethel</p>
+            <h2 className="display mt-1 text-2xl sm:text-3xl">Confident in Christ</h2>
+          </div>
+          <div className="aspect-video w-full bg-brown-deep">
             <iframe
               title="Confident in Christ sermon"
               src="https://www.youtube-nocookie.com/embed?listType=user_uploads&list=BethelBaptistChurch-Hernan2627"
@@ -36,19 +26,19 @@ export default function SermonMiniWindow() {
               allowFullScreen
             />
           </div>
-          <div className="p-3">
-            <p className="text-sm font-semibold text-ink">Confident in Christ</p>
+          <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-7">
+            <p className="text-sm text-ink/75">Take a moment to hear a message from God’s Word.</p>
             <a
               href="https://pastors.ai/sermon/confident-in-christ/#quotes"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-block text-sm font-bold text-gold-deep underline underline-offset-4"
+              className="font-bold text-gold-deep underline underline-offset-4"
             >
-              Watch sermon highlights and quotes
+              Sermon highlights and quotes
             </a>
           </div>
-        </>
-      )}
-    </aside>
+        </div>
+      </div>
+    </section>
   );
 }
