@@ -236,7 +236,7 @@ export default async function Home() {
               <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-ink/5">
                 <p className="eyebrow text-gold-deep">This week</p>
                 <ul className="mt-3 divide-y divide-ink/10">
-                  {week.slice(0, 6).map((e) => (
+                  {week.filter((e) => !e.title.toLowerCase().includes("lunch together")).slice(0, 6).map((e) => (
                     <li key={`${e.date}${e.time24}${e.title}`} className="flex items-baseline justify-between gap-3 py-1.5">
                       <span className="min-w-0 truncate font-semibold">{e.title}</span>
                       <span className="time shrink-0 text-sm text-muted">
