@@ -42,6 +42,21 @@ export default function SermonsPage() {
           <div className="mt-10" data-reveal="1">
             <SermonLibrarySection />
           </div>
+          <article className="mt-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5 md:p-8" data-reveal="2">
+            <p className="eyebrow text-gold-deep">Featured sermon · November 8, 2026</p>
+            <h3 className="display mt-3 text-3xl sm:text-4xl">Confident in Christ</h3>
+            <p className="mt-3 leading-relaxed text-ink/80">
+              Revisit this message and its Scripture encouragement, key quotes, takeaways, and study resources.
+            </p>
+            <a
+              href="https://pastors.ai/sermon/confident-in-christ/#quotes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-gold mt-6"
+            >
+              View sermon and quotes
+            </a>
+          </article>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link href="/watch" className="btn btn-ghost btn-ghost-ink">Watch the full service archive</Link>
             <a href={church.youtube} target="_blank" rel="noopener noreferrer" className="btn btn-gold">Subscribe on YouTube</a>
