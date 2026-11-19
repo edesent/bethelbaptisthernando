@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
 import Phone from "@/components/Phone";
@@ -64,6 +65,8 @@ export default function Counseling() {
           </div>
         </div>
       </section>
+
+      <SermonMiniWindow />
     </>
   );
 }
