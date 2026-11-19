@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import Image from "next/image";
 import Link from "next/link";
 import { RideForm } from "@/components/Forms";
@@ -85,6 +86,8 @@ export default function Visit() {
           </div>
         </div>
       </section>
+
+      <SermonMiniWindow />
 
       <section className="bg-white">
         <div className="wrap grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:py-24">
