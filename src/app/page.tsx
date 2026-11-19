@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import Banners from "@/components/Banners";
-import SermonMiniWindow from "@/components/SermonMiniWindow";
 import OpenChat from "@/components/OpenChat";
 import VideoLightbox from "@/components/VideoLightbox";
 import Phone from "@/components/Phone";
