@@ -85,10 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Header />
-        <main>
-          <SermonMiniWindow />
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
         <ChatPrompt />
         <Reveal />
