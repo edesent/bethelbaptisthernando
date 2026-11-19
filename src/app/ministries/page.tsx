@@ -75,6 +75,7 @@ const prayerSections = [
     requests: [
       "John/Lilia Swanson (bone marrow/stage 3)",
       "Myrtle/Deb (leg pain & doctor appointment/pneumonia/back pain)",
+      "Tim (health)",
     ],
   },
   {
