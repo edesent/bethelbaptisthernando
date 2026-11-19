@@ -10,7 +10,7 @@ export default function SermonMiniWindow() {
   if (pathname === "/sermons" || pathname.startsWith("/sermons/")) return null;
 
   return (
-    <aside className="fixed bottom-4 right-4 z-40 w-[min(19rem,calc(100vw-2rem))] overflow-hidden rounded-xl border border-gold/40 bg-white shadow-2xl">
+    <aside className="fixed top-24 right-4 z-40 w-[min(19rem,calc(100vw-2rem))] overflow-hidden rounded-xl border border-gold/40 bg-white shadow-2xl">
       <div className="flex items-center justify-between gap-3 bg-brown-deep px-4 py-3 text-white">
         <span className="text-sm font-bold">A Word from Bethel</span>
         <button
