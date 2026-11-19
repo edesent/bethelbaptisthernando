@@ -8,9 +8,16 @@ export default function SermonMiniWindow() {
   if (pathname === "/sermons" || pathname.startsWith("/sermons/")) return null;
 
   return (
-    <section className="bg-paper-deep py-4 sm:py-5" aria-label="Featured sermon">
-      <div className="wrap flex justify-end">
-        <div className="w-full max-w-sm overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-ink/10 sm:max-w-md">
+    <section className="bg-paper-deep py-5 sm:py-7" aria-label="Featured sermon and Bible encouragement">
+      <div className="wrap grid items-center gap-5 md:grid-cols-[1fr_1.1fr] md:gap-8">
+        <div className="px-2 py-3 text-center md:px-5 md:text-left">
+          <p className="eyebrow text-gold-deep">A promise to hold on to</p>
+          <blockquote className="display mt-3 text-2xl leading-snug text-brown-deep sm:text-3xl">
+            “I am the way, the truth, and the life: no man cometh unto the Father, but by me.”
+          </blockquote>
+          <p className="mt-3 text-sm font-bold uppercase tracking-widest text-gold-deep">John 14:6 · KJV</p>
+        </div>
+        <div className="w-full overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-ink/10">
           <div className="flex items-center justify-between gap-3 bg-brown-deep px-4 py-2 text-white">
             <div className="min-w-0">
               <p className="eyebrow text-[0.6rem] text-gold-light">A Word from Bethel</p>
