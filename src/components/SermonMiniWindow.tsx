@@ -16,20 +16,20 @@ const clip3 = {
 };
 
 const clips: Record<string, typeof clip1> = {
-  // Main navigation order: Home, Visit, About, Ministries, Events, Give, Contact.
-  // Rotate 1 → 2 → 3 so neighboring pages never repeat a clip.
+  // Rotate clips evenly in the site's page/sitemap order:
+  // Home, Visit, About, Ministries, Events, Watch, Give, Contact,
+  // About / Beliefs, About / Rebuild, and Counseling.
   "/": clip1,
   "/visit": clip2,
   "/about": clip3,
   "/ministries": clip1,
   "/events": clip2,
-  "/give": clip3,
-  "/contact": clip1,
-  "/watch": clip1,
-  // Related pages use a different clip from their parent page.
-  "/about/beliefs": clip1,
-  "/about/rebuild": clip2,
-  "/counseling": clip3,
+  "/watch": clip3,
+  "/give": clip1,
+  "/contact": clip2,
+  "/about/beliefs": clip3,
+  "/about/rebuild": clip1,
+  "/counseling": clip2,
 };
 
 const encouragementByPage: Record<string, { heading: string; verse: string; reference: string }> = {
