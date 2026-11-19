@@ -57,23 +57,24 @@ const prayerSections = [
       "Pregnancies — Kaylin F, Alizayah M, Tiffany M, Ashley B",
       "Baby Andrew Barnes, Baby Selah Higgins",
       "Crystal Zeiwey (kidney transplant)",
-      "Bankert family (health/mom’s eye)",
+      "Bankert family (health/mom’s eye & lupus)",
       "Cifelli family (parents/grandparents/cousin Eva)",
       "Alex Mosh (seizures/brain surgery on 11/23/26)",
       "Yvette O’Donell’s Mom (stage 4)",
       "Pastor (foot pain)",
       "Tim Gabbert (in hospital, fell)",
+      "Aunt Joyce (bereavement)",
     ],
   },
   {
     title: "Bus Family",
-    requests: ["Layla", "London", "Nahla", "Ah’mari", "Ah’mani", "Anthony", "Maddison"],
+    requests: ["Layla", "London", "Nahla", "Ah’mari", "Ah’mani", "Anthony", "Maddison", "Nova"],
   },
   {
     title: "Cook Family",
     requests: [
       "John/Lilia Swanson (bone marrow/stage 3)",
-      "Myrtle/Deb (leg pain/pneumonia/back pain)",
+      "Myrtle/Deb (leg pain & doctor appointment/pneumonia/back pain)",
     ],
   },
   {
@@ -88,8 +89,6 @@ const prayerSections = [
       "Joe Gonzales’ son (salvation)",
       "Suzanne & Charlie/Flecks (marital)",
       "Melissa (anxiety)",
-      "Austin Wiley (cousin in prison)",
-      "Gavin Wiley (trying to enlist in the Army)",
     ],
   },
   { title: "Jones Family", requests: [] },
@@ -100,11 +99,11 @@ const prayerSections = [
   {
     title: "Wilson Family",
     requests: [
-      "Patty Thompson (heart procedure recovery)",
+      "Patty Thompson/Gayle Anderson (heart procedure recovery/taking care)",
       "Emmitt/Clark/Shawn/Kevin (unspoken/health/job/dizzy & back)",
     ],
   },
-  { title: "Womack Family", requests: [] },
+  { title: "Womack Family", requests: ["Health"] },
   {
     title: "Special Needs",
     requests: ["American leaders", "Military", "1st responders", "Israel", "Unspokens"],
