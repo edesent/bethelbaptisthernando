@@ -2,47 +2,33 @@
 
 import { usePathname } from "next/navigation";
 
-const clips: Record<string, { title: string; src: string }> = {
-  "/": {
-    title: "Sermon Clip 1",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/xgIeiY1N_9oRg8OlNI9dX61JrdBlyCMK/sp_caption_477785_LXHRVHl39Q0_3974_2%202-lyJ6RvMUD1ZqejkL8EE9ZGch7DuPCi.mp4",
-  },
-  "/ministries": {
-    title: "Sermon Clip 2",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/9InS1cLK5eY5U6TFV41OmyheGkYRvB8P/sp_caption_477785_LXHRVHl39Q0_2437_1-cactJLmlisIwGcnnvMTE0khm8sdOLG.mp4",
-  },
-  "/events": {
-    title: "Sermon Clip 3",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/dpFvMwdC8WiGMMPjCh7KRYfLrMe0LHlK/sp_caption_477785_LXHRVHl39Q0_3480_3%202-ckUWz31FMHIhMJpvhS8dh3G0Gfdi1m.mp4",
-  },
-  "/about": {
-    title: "Sermon Clip 1",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/xgIeiY1N_9oRg8OlNI9dX61JrdBlyCMK/sp_caption_477785_LXHRVHl39Q0_3974_2%202-lyJ6RvMUD1ZqejkL8EE9ZGch7DuPCi.mp4",
-  },
-  "/about/beliefs": {
-    title: "Sermon Clip 2",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/9InS1cLK5eY5U6TFV41OmyheGkYRvB8P/sp_caption_477785_LXHRVHl39Q0_2437_1-cactJLmlisIwGcnnvMTE0khm8sdOLG.mp4",
-  },
-  "/about/rebuild": {
-    title: "Sermon Clip 3",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/dpFvMwdC8WiGMMPjCh7KRYfLrMe0LHlK/sp_caption_477785_LXHRVHl39Q0_3480_3%202-ckUWz31FMHIhMJpvhS8dh3G0Gfdi1m.mp4",
-  },
-  "/contact": {
-    title: "Sermon Clip 1",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/xgIeiY1N_9oRg8OlNI9dX61JrdBlyCMK/sp_caption_477785_LXHRVHl39Q0_3974_2%202-lyJ6RvMUD1ZqejkL8EE9ZGch7DuPCi.mp4",
-  },
-  "/counseling": {
-    title: "Sermon Clip 2",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/9InS1cLK5eY5U6TFV41OmyheGkYRvB8P/sp_caption_477785_LXHRVHl39Q0_2437_1-cactJLmlisIwGcnnvMTE0khm8sdOLG.mp4",
-  },
-  "/give": {
-    title: "Sermon Clip 3",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/dpFvMwdC8WiGMMPjCh7KRYfLrMe0LHlK/sp_caption_477785_LXHRVHl39Q0_3480_3%202-ckUWz31FMHIhMJpvhS8dh3G0Gfdi1m.mp4",
-  },
-  "/visit": {
-    title: "Sermon Clip 1",
-    src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/xgIeiY1N_9oRg8OlNI9dX61JrdBlyCMK/sp_caption_477785_LXHRVHl39Q0_3974_2%202-lyJ6RvMUD1ZqejkL8EE9ZGch7DuPCi.mp4",
-  },
+const clip1 = {
+  title: "Sermon Clip 1",
+  src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/xgIeiY1N_9oRg8OlNI9dX61JrdBlyCMK/sp_caption_477785_LXHRVHl39Q0_3974_2%202-lyJ6RvMUD1ZqejkL8EE9ZGch7DuPCi.mp4",
+};
+const clip2 = {
+  title: "Sermon Clip 2",
+  src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/9InS1cLK5eY5U6TFV41OmyheGkYRvB8P/sp_caption_477785_LXHRVHl39Q0_2437_1-cactJLmlisIwGcnnvMTE0khm8sdOLG.mp4",
+};
+const clip3 = {
+  title: "Sermon Clip 3",
+  src: "https://o3hectmev11nr3rl.public.blob.vercel-storage.com/church-uploads/dpFvMwdC8WiGMMPjCh7KRYfLrMe0LHlK/sp_caption_477785_LXHRVHl39Q0_3480_3%202-ckUWz31FMHIhMJpvhS8dh3G0Gfdi1m.mp4",
+};
+
+const clips: Record<string, typeof clip1> = {
+  // Main navigation order: Home, Visit, About, Ministries, Events, Give, Contact.
+  // Rotate 1 → 2 → 3 so neighboring pages never repeat a clip.
+  "/": clip1,
+  "/visit": clip2,
+  "/about": clip3,
+  "/ministries": clip1,
+  "/events": clip2,
+  "/give": clip3,
+  "/contact": clip1,
+  // Related pages use a different clip from their parent page.
+  "/about/beliefs": clip1,
+  "/about/rebuild": clip2,
+  "/counseling": clip3,
 };
 
 const encouragementByPage: Record<string, { heading: string; verse: string; reference: string }> = {
