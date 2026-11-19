@@ -169,6 +169,36 @@ export default async function Watch({ searchParams }: { searchParams: Promise<{ 
           </div>
         </div>
       </section>
+      <section className="bg-white">
+        <div className="wrap py-16 md:py-24">
+          <div className="max-w-3xl" data-reveal>
+            <p className="eyebrow text-gold-deep">Daily devotional</p>
+            <h2 className="display mt-3 text-4xl sm:text-5xl">Pause. Read. Pray. Follow.</h2>
+            <p className="mt-5 text-lg text-ink/80">
+              Take a moment in God’s Word and carry its truth into the week ahead.
+            </p>
+          </div>
+          <article className="mt-10 rounded-2xl bg-paper p-6 shadow-sm ring-1 ring-ink/5 md:p-8" data-reveal>
+            <p className="eyebrow text-gold-deep">Today’s devotional</p>
+            <h3 className="display mt-3 text-3xl">A Word for the Week</h3>
+            <p className="mt-4 font-bold text-gold-deep">Psalm 119:105 · KJV</p>
+            <blockquote className="display-soft mt-2 border-l-4 border-gold pl-4 text-2xl italic text-ink">
+              “Thy word is a lamp unto my feet, and a light unto my path.”
+            </blockquote>
+            <p className="mt-5 leading-relaxed text-ink/85">
+              God’s Word gives direction for the next step, even when we cannot see the whole road ahead. We do not have to solve every question today. We can trust the Lord enough to obey the light He has already given us.
+            </p>
+            <h4 className="eyebrow mt-6 text-gold-deep">Put it into practice</h4>
+            <p className="mt-2 text-ink/85">
+              Read Psalm 119:105–112. Ask the Lord to show you one clear step of obedience, then take it this week.
+            </p>
+            <h4 className="eyebrow mt-6 text-gold-deep">Prayer</h4>
+            <p className="mt-2 text-ink/85">
+              Lord, help me follow the light of Thy Word today. Give me wisdom for the next step and a willing heart to obey. Amen.
+            </p>
+          </article>
+        </div>
+      </section>
     </>
   );
 }
