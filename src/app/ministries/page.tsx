@@ -221,7 +221,7 @@ export default function Ministries() {
             <div>
               <p className="display-soft text-2xl">Share your gift of music with Bethel.</p>
               <p className="mt-1 text-ink/75">Do you play the piano and enjoy serving the Lord through music? We would love to welcome you to be part of our church music ministry. Whether you can help regularly or occasionally, your talent would be a blessing to our congregation. Please reach out and let us talk!</p>
-              <p className="mt-4 italic text-ink/85">“And whatsoever ye do, do it heartily, as to the Lord, and not unto men;” <span className="font-semibold not-italic text-gold-deep">Colossians 3:23 (KJV)</span></p>
+              <p className="mt-4 italic text-ink/85">“Serve the LORD with gladness: come before his presence with singing.” <span className="font-semibold not-italic text-gold-deep">Psalm 100:2 (KJV)</span></p>
             </div>
             <Link href="/contact" className="btn btn-ink mt-4 md:mt-0">
               Say hello
