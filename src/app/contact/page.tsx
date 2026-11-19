@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import Image from "next/image";
 import { ContactForm, PrayerForm } from "@/components/Forms";
 import PageHead from "@/components/PageHead";
@@ -66,6 +67,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <SermonMiniWindow />
       <section id="prayer" className="bg-brown text-white scroll-mt-24">
         <div className="wrap grid gap-12 py-16 md:grid-cols-[0.9fr_1.1fr] md:items-center md:py-24">
           <div data-reveal>
