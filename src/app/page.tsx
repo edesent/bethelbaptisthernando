@@ -73,9 +73,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-
-      <SermonMiniWindow />
-
       {/* THE PASTOR — his face and his welcome, first thing after the hero */}
       <section id="pastor" className="bg-paper">
         <div className="wrap grid items-center gap-10 py-16 md:grid-cols-[0.8fr_1.2fr] md:gap-14 md:py-24">
@@ -160,6 +157,8 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <SermonMiniWindow />
 
       {/* LUNCH — the thing no other church around does every week */}
       <section className="relative isolate overflow-hidden bg-brown-deep text-white">
