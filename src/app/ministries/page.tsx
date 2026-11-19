@@ -219,8 +219,9 @@ export default function Ministries() {
           </ul>
           <div className="mt-12 rounded-2xl bg-gold-pale p-6 md:flex md:items-center md:justify-between" data-reveal>
             <div>
-              <p className="display-soft text-2xl">Pianist needed.</p>
-              <p className="mt-1 text-ink/75">If you play and have a heart to serve the Lord with it, the church would love to hear from you.</p>
+              <p className="display-soft text-2xl">Share your gift of music with Bethel.</p>
+              <p className="mt-1 text-ink/75">Do you play the piano and enjoy serving the Lord through music? We would love to welcome you to be part of our church music ministry. Whether you can help regularly or occasionally, your talent would be a blessing to our congregation. Please reach out and let us talk!</p>
+              <p className="mt-4 italic text-ink/85">“And whatsoever ye do, do it heartily, as to the Lord, and not unto men;” <span className="font-semibold not-italic text-gold-deep">Colossians 3:23 (KJV)</span></p>
             </div>
             <Link href="/contact" className="btn btn-ink mt-4 md:mt-0">
               Say hello
