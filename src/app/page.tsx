@@ -105,7 +105,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <SermonMiniWindow />
 
       {/* WHAT A SUNDAY IS LIKE — the walk-through */}
       <section className="bg-paper">
