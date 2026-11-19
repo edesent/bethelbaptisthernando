@@ -25,6 +25,7 @@ const clips: Record<string, typeof clip1> = {
   "/events": clip2,
   "/give": clip3,
   "/contact": clip1,
+  "/watch": clip1,
   // Related pages use a different clip from their parent page.
   "/about/beliefs": clip1,
   "/about/rebuild": clip2,
