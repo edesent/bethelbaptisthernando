@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import Image from "next/image";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
@@ -78,6 +79,8 @@ export default function Give() {
           </div>
         </div>
       </section>
+
+      <SermonMiniWindow />
     </>
   );
 }
