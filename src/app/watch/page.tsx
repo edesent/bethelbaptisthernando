@@ -92,6 +92,7 @@ export default async function Watch({ searchParams }: { searchParams: Promise<{ 
           </div>
         </div>
       </section>
+      <SermonMiniWindow />
       <section id="services" className="bg-white scroll-mt-20">
         <div className="wrap py-16 md:py-24">
           <div className="flex flex-wrap items-end justify-between gap-4" data-reveal>
