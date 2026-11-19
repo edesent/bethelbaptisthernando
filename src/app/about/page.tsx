@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import Image from "next/image";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
@@ -68,6 +69,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <SermonMiniWindow />
 
       {/* HISTORY */}
       <section id="history" className="bg-white scroll-mt-24">
