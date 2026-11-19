@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import Image from "next/image";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
@@ -66,6 +67,8 @@ export default function Rebuild() {
           </div>
         </div>
       </section>
+
+      <SermonMiniWindow />
       <section className="bg-white">
         <div className="wrap py-16 md:py-24">
           <p className="eyebrow text-gold-deep" data-reveal>
