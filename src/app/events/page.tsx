@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import Image from "next/image";
 import PageHead from "@/components/PageHead";
 import { addDays, calendarBetween, fmtDay, fmtTime, nowInChurch, relativeDay } from "@/lib/calendar";
@@ -84,6 +85,8 @@ export default async function Events() {
           </ul>
         </div>
       </section>
+
+      <SermonMiniWindow />
 
       {/* AGENDA — next two weeks */}
       <section className="bg-white">
