@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import PageHead from "@/components/PageHead";
 import { church } from "@/lib/site";
 
@@ -47,6 +48,8 @@ export default function Beliefs() {
           </div>
         </div>
       </section>
+
+      <SermonMiniWindow />
     </>
   );
 }
