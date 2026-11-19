@@ -310,41 +310,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* SHORT SERMON CLIPS — quick encouragement from the pulpit */}
-      <section className="bg-paper-deep">
-        <div className="wrap py-16 md:py-20">
-          <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
-            <div data-reveal>
-              <p className="eyebrow text-gold-deep">A little encouragement for your day</p>
-              <h2 className="display mt-3 text-4xl sm:text-5xl">Sermon <span className="script text-gold">clips.</span></h2>
-              <p className="mt-4 max-w-2xl text-lg text-ink/80">Watch short highlights from the preaching at Bethel Baptist Church and share an encouraging word with someone this week.</p>
-            </div>
-            <Link href="/sermons" className="btn btn-gold" data-reveal="1">More sermons &amp; devotionals</Link>
-          </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-2" data-reveal="1">
-            <article className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-ink/5">
-              <div className="aspect-video w-full bg-brown-deep">
-                <iframe title="Confident in Christ sermon highlights" src="https://www.youtube-nocookie.com/embed?listType=search&amp;list=Bethel%20Baptist%20Church%20Hernando%20Confident%20in%20Christ%20sermon" className="h-full w-full" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-              </div>
-              <div className="p-5">
-                <p className="eyebrow text-gold-deep">Featured message</p>
-                <h3 className="display-soft mt-1 text-2xl">Confident in Christ</h3>
-                <p className="mt-2 text-ink/75">A message to strengthen your confidence in the Lord Jesus Christ.</p>
-                <a href="https://pastors.ai/sermon/confident-in-christ/#quotes" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block font-bold text-gold-deep underline underline-offset-4">Watch the sermon and read key quotes</a>
-              </div>
-            </article>
-            <article className="flex flex-col justify-between rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5 md:p-8">
-              <div>
-                <p className="eyebrow text-gold-deep">Keep growing in the Word</p>
-                <h3 className="display mt-3 text-3xl">More Bible preaching, all week long.</h3>
-                <p className="mt-4 leading-relaxed text-ink/80">Visit our sermon page for recent messages, sermon resources, and weekly devotionals from Bethel Baptist Church.</p>
-              </div>
-              <Link href="/sermons" className="btn btn-ink mt-6 self-start">Explore sermons</Link>
-            </article>
-          </div>
-        </div>
-      </section>
-
       {/* WATCH + GIVE */}
       <section className="bg-brown-deep text-white">
         <div className="wrap grid gap-12 py-20 md:grid-cols-2 md:py-28">
