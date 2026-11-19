@@ -106,6 +106,8 @@ export default async function Home() {
         </div>
       </section>
 
+      <SermonMiniWindow />
+
       {/* WHAT A SUNDAY IS LIKE — the walk-through */}
       <section className="bg-paper">
         <div className="wrap py-20 md:py-28">
