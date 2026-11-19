@@ -8,20 +8,9 @@ export default function SermonMiniWindow() {
   if (pathname === "/sermons" || pathname.startsWith("/sermons/")) return null;
 
   return (
-    <aside className="fixed bottom-4 right-4 z-40 w-[min(17rem,calc(100vw-2rem))] overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-ink/15">
-      <div className="flex items-center justify-between gap-2 bg-brown-deep px-3 py-2 text-white">
-        <div className="min-w-0">
-          <p className="eyebrow text-[0.58rem] text-gold-light">A Word from Bethel</p>
-          <p className="truncate text-sm font-semibold">Confident in Christ</p>
-        </div>
-        <a
-          href="https://pastors.ai/sermon/confident-in-christ/#quotes"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shrink-0 text-xs font-bold text-gold-light underline underline-offset-2"
-        >
-          Highlights
-        </a>
+    <aside className="fixed right-3 top-[5rem] z-30 w-[min(13rem,calc(100vw-1.5rem))] overflow-hidden rounded-lg bg-white shadow-xl ring-1 ring-ink/15 sm:right-5 sm:top-[6rem] sm:w-56">
+      <div className="bg-brown-deep px-3 py-1.5 text-white">
+        <p className="truncate text-xs font-semibold">A Word from Bethel · Confident in Christ</p>
       </div>
       <div className="aspect-video w-full bg-brown-deep">
         <iframe
@@ -34,6 +23,14 @@ export default function SermonMiniWindow() {
           allowFullScreen
         />
       </div>
+      <a
+        href="https://pastors.ai/sermon/confident-in-christ/#quotes"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block px-3 py-1.5 text-right text-xs font-bold text-gold-deep underline underline-offset-2"
+      >
+        Sermon highlights
+      </a>
     </aside>
   );
 }
