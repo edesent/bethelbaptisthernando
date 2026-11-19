@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHead from "@/components/PageHead";
+import SermonMiniWindow from "@/components/SermonMiniWindow";
 import VideoLightbox from "@/components/VideoLightbox";
 import { photos } from "@/lib/photos";
 import { church } from "@/lib/site";
