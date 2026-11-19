@@ -5,7 +5,6 @@ import ChatPrompt from "@/components/ChatPrompt";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Reveal from "@/components/Reveal";
-import SermonMiniWindow from "@/components/SermonMiniWindow";
 import { church, isDemo, pastor, siteUrl } from "@/lib/site";
 import "./globals.css";
 
